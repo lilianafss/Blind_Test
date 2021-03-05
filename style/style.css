@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: auto;
+    height: auto;
+}
+
+.title{
+
+    width: 200px;
+    clear: both;
+}
+
+
+
+.header{
+    background-color: #DFB7FF;
+    width: auto;
+    height: 70px;
+}
+
+.header-container nav ul {
+   list-style: none;
+ 
+}
+
+.header-container nav ul li a{
+    text-decoration: none;
+}
+
+.nav{
+    width: 300px;
+    text-align: right;
+    float: right;
+    clear: both;
+}
+
+.nav li{
+    display: inline;
+    padding: 0% 5% 0% 5%;
+}
