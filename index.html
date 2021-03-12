@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/styleIndex.css">
     <!-- Font Awesome -->
 
     <script src="https://kit.fontawesome.com/2cafd0f29d.js" crossorigin="anonymous"></script>
@@ -20,40 +20,21 @@
             <nav class="nav">
                 <ul>
                     <li><a href="./categories.html">categories</a></li>
-                    <li><a href="#"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
         </header>
     </div>
+   
 
-    <div class="main-container">
-        <h1>Blind Test</h1>
-        <div class="slideshow-container" style="max-width:500px">
-            <img class="mySlides" src="./images/haikyuu-3.jpg" style="width:100%">
-            <img class="mySlides" src="./images/netflix.png" style="width:100%">
-        </div>
+   <div class="slider">
+       <div class="load">
 
-          
-        <script>
-          var myIndex = 0;
-          carousel();
-          
-          function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-              x[i].style.display = "none";  
-            }
-            myIndex++;
-            if (myIndex > x.length) {myIndex = 1}    
-            x[myIndex-1].style.display = "block";  
-            setTimeout(carousel, 2000); // Change image every 2 seconds
-          }
-        </script>
-          
-
-        <button type="button">Start</button>
-
+       </div>
+       <div class="content">
+            <div class="principal">
+                <button type="button">Start</button>
+            </div>
+       </div>
     </div>
 </body>
 </html>

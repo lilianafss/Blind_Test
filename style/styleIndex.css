@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: auto;
+    height: auto;
+    background: linear-gradient(to top right, #dfb7ff, #FFB0EA, #FFB1C4,#FFC099,#FFDB77,#F9F871);;   
+}
+
+header .title{
+    font-size: 28px;
+    font-weight: 700;
+    color:#fff;
+    float: left;
+}
+
+
+header{
+   position: fixed;
+   top:0;
+   left: 0;
+   width: 100%;
+   padding: 25px 5px;
+   background: linear-gradient(to top, transparent, rgba(0,0,0,0.6));
+   
+}
+
+header .nav{
+    float: right;
+    margin-top: 5px;
+}
+
+header ul li{
+    display: inline-block;
+}
+header ul li a{
+   text-decoration: none;
+   font-size: 16px;
+   color:#fff;
+    margin: 0 25px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.load{
+    animation: slide 2s;
+}
+
+.slider{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    width: 100%;
+    height: 100vh;
+    animation: slide 40s infinite;
+}
+.content{
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.principal{
+    
+}
+/* slide 
+.slider{
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.slides{
+    width: 500%;
+    height: 500px;
+    display: flex;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 20%;
+    transition: 2s;
+}
+.slide img{
+    width: 800px;
+    height: 500px;
+}
+*/
+
+/* manual slide 
+
+.navigation-manual{
+    position: absolute;
+    width: 800px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+}
+.manual-btn{
+    border: 2px solid #dfb7ff;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 40px;
+}
+
+.manual-btn:hover{
+    background: #dfb7ff;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first{
+    margin-left: -60%;
+}
+*/
+/* automatic slide 
+
+.navigation-auto{
+    position: absolute;
+    display: flex;
+    width: 800px;
+    justify-content: center;
+    margin-top: 460px;
+}
+
+.navigation-auto div{
+    border: 2px solid #FFB0EA;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background: #FFB0EA;
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background: #FFB0EA;
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background: #FFB0EA;
+}
+#radio4:checked ~ .navigation-auto .auto-btn4{
+    background: #FFB0EA;
+}
+*/
