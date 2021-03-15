@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
 }
+
+
 body{
     width: auto;
     height: auto;
     background: linear-gradient(to top right, #dfb7ff, #FFB0EA, #FFB1C4,#FFC099,#FFDB77,#F9F871);;   
 }
-
+/* -------> header <------- */
 header .title{
     font-size: 28px;
     font-weight: 700;
@@ -42,6 +44,9 @@ header ul li a{
     font-weight: 300;
     letter-spacing: 1px;
 }
+/* -------> header <------- */
+
+/* -------> slider <------- */
 .load{
     animation: slide 2s;
 }
@@ -52,7 +57,7 @@ header ul li a{
     background-position:center;
     width: 100%;
     height: 100vh;
-    animation: slide 40s infinite;
+    animation: slide 30s infinite;
 }
 .content{
     color: #fff;
@@ -61,108 +66,70 @@ header ul li a{
 }
 
 .principal{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    letter-spacing: 5px;
+    text-align: center;
+}
+.principal h1{
+    font-size:70px ;
+    margin-bottom: 20px;
+}
+
+@keyframes slide{
+    0%{
+        background-image: url('../images/haikyuu-3.jpg');
+    }
+    20%{
+        background-image: url('../images/haikyuu-3.jpg');
+    }
+    20.01%{
+        background-image: url('../images/histoire.jpg');
+    }
+    40%{
+        background-image: url('../images/histoire.jpg');
+    }
+    40.01%{
+        background-image: url('../images/logo.jpg');
+    }
+    60%{
+        background-image: url('../images/logo.jpg');
+    }
+    60.01%{
+        background-image: url('../images/netflix.png');
+    }
+    80%{
+        background-image: url('../images/netflix.png');
+    }
+    80.01%{
+        background-image: url('../images/Manga.jpg');
+    }
+    100%{
+        background-image: url('../images/Manga.jpg');
+    }
+}
+/* -------> slider <------- */
+
+
+/* -------> button <------- */
+.buttonStart {
+    color: #dfb7ff !important;
+    text-transform: uppercase;
     
-}
-/* slide 
-.slider{
-    width: 800px;
-    height: 500px;
-    border-radius: 10px;
-    overflow: hidden;
+    padding: 20px;
+    border: 4px solid #dfb7ff !important;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
 }
 
-.slides{
-    width: 500%;
-    height: 500px;
-    display: flex;
-}
-
-.slides input{
-    display: none;
-}
-
-.slide{
-    width: 20%;
-    transition: 2s;
-}
-.slide img{
-    width: 800px;
-    height: 500px;
-}
-*/
-
-/* manual slide 
-
-.navigation-manual{
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
-    justify-content: center;
-}
-.manual-btn{
-    border: 2px solid #dfb7ff;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child){
-    margin-right: 40px;
-}
-
-.manual-btn:hover{
-    background: #dfb7ff;
-}
-
-#radio1:checked ~ .first{
-    margin-left: 0;
-}
-
-#radio2:checked ~ .first{
-    margin-left: -20%;
-}
-
-#radio3:checked ~ .first{
-    margin-left: -40%;
-}
-
-#radio4:checked ~ .first{
-    margin-left: -60%;
-}
-*/
-/* automatic slide 
-
-.navigation-auto{
-    position: absolute;
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    margin-top: 460px;
-}
-
-.navigation-auto div{
-    border: 2px solid #FFB0EA;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
-}
-
-.navigation-auto div:not(:last-child){
-    margin-right: 40px;
-}
-
-#radio1:checked ~ .navigation-auto .auto-btn1{
-    background: #FFB0EA;
-}
-#radio2:checked ~ .navigation-auto .auto-btn2{
-    background: #FFB0EA;
-}
-#radio3:checked ~ .navigation-auto .auto-btn3{
-    background: #FFB0EA;
-}
-#radio4:checked ~ .navigation-auto .auto-btn4{
-    background: #FFB0EA;
-}
-*/
+.buttonStart:hover {
+    color: #dfb7ff !important;
+    border-radius: 50px;
+    border-color: #dfb7ff!important;
+    transition: all 0.3s ease 0s;
+    }
+/* -------> button <------- */
