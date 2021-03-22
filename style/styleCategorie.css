@@ -5,7 +5,9 @@
 body{
     width: auto;
     height: auto;
-    background-image: linear-gradient(to top right, #dfb7ff, #FFB0EA, #FFB1C4,#FFC099,#FFDB77,#F9F871);
+   /* background-image: linear-gradient(to top right, #000000, #696969, #808080,#A9A9A9,#C0C0C0,#D3D3D3);*/
+   background-image: url('../images/silver-2143730_1920.jpg');
+  
 }
 button{
     height: 200px;
@@ -18,14 +20,12 @@ button{
 
 
 }
-image{
-    width: 200px;
-    height: 250px;
-}
 /* Red border */
 hr {
-    border-top: 1px solid red;
+    border-top: 1px solid black;
     margin-top: 5%;
+    
+   
   }
 
 p{
@@ -71,4 +71,48 @@ table{
 }
 td{
     text-align: center;
+}
+.container {
+    position: relative;
+    width: 50%;
+  }
+  
+.image {
+    display: block;
+
+   
+
+  }
+  
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    width: 250px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+  }
+  
+.container:hover .overlay {
+    opacity: 1;
+  }
+  
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+img{
+    height: 200px;
+    width: 250px;
 }

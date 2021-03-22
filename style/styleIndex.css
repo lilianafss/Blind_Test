@@ -3,12 +3,14 @@
     padding: 0;
 }
 
-
 body{
     width: auto;
     height: auto;
     background: linear-gradient(to top right, #dfb7ff, #FFB0EA, #FFB1C4,#FFC099,#FFDB77,#F9F871);;   
+    font-family: 'Lato', sans-serif;
 }
+
+
 /* -------> header <------- */
 header .title{
     font-size: 28px;
@@ -16,7 +18,6 @@ header .title{
     color:#fff;
     float: left;
 }
-
 
 header{
    position: fixed;
@@ -60,27 +61,7 @@ header ul li a{
     animation: slide 30s infinite;
    
 }
-.content{
-    color: #fff;
-    width: 100%;
-    height: 100%;
 
-}
-
-.principal{
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    position: absolute;
-    background-color: rgba(0,0,0,0.5);
-    letter-spacing: 5px;
-    text-align: center;
-
-}
-.principal h1{
-    font-size:70px ;
-    margin-bottom: 20px;
-}
 
 @keyframes slide{
     0%{
@@ -90,16 +71,16 @@ header ul li a{
         background-image: url('../images/animes.jpg');
     }
     20.01%{
-        background-image: url('../images/histoire_slider.jpg');
+        background-image: url('../images/histoire.jpg');
     }
     40%{
-        background-image: url('../images/histoire_slider.jpg');
+        background-image: url('../images/histoire.jpg');
     }
     40.01%{
-        background-image: url('../images/logo.jpg');
+        background-image: url('../images/manette.jpg');
     }
     60%{
-        background-image: url('../images/logo.jpg');
+        background-image: url('../images/manette.jpg');
     }
     60.01%{
         background-image: url('../images/netflix.png');
@@ -108,33 +89,77 @@ header ul li a{
         background-image: url('../images/netflix.png');
     }
     80.01%{
-        background-image: url('../images/Manga.jpg');
+        background-image: url('../images/canal-1209808_1920.jpg');
     }
     100%{
-        background-image: url('../images/Manga.jpg');
+        background-image: url('../images/canal-1209808_1920.jpg');
     }
 }
-
 
 /* -------> slider <------- */
 
-
 /* -------> button <------- */
-.buttonStart {
-    color: #dfb7ff !important;
-    text-transform: uppercase;
-    
-    padding: 20px;
-    border: 4px solid #dfb7ff !important;
-    border-radius: 6px;
-    display: inline-block;
-    transition: all 0.3s ease 0s;
+
+.button{
+    position: absolute;
+    bottom: 0;
+    height: 150px;
+    padding-left: 600px;
+    padding-right: 600px;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.buttonStart:hover {
-    color: #dfb7ff !important;
-    border-radius: 50px;
-    border-color: #dfb7ff!important;
-    transition: all 0.3s ease 0s;
-    }
+.link_wrapper{
+    position: relative;
+}
+
+.link_wrapper a{
+    display: block;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 3px solid #fff;
+    transition: all .35s;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+    position: absolute;
+    transform: rotate(45deg);
+    right: 0;
+    top: 0;
+    z-index: -1;
+    transition: all .35s;
+}
+
+.icon svg{
+    width: 30px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 15px);
+    transform: rotate(-45deg);
+    fill: #fff;
+    transition: all .35s;
+}
+
+.link_wrapper a:hover{
+    width: 200px;
+    border: 3px solid #fff;
+    background: transparent;
+    color: #fff;
+}
+
+.link_wrapper a:hover + .icon{
+    border: 3px solid #fff;
+    right: -25%;
+}
 /* -------> button <------- */
