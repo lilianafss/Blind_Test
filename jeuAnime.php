@@ -1,11 +1,8 @@
 <?php
 session_start();
 //initialisation des variables
-$random = rand(0, 9);
-$imageChoisi=null;
-
-
-
+$random = rand(0, 9);  
+$nbQuestion=0;
 
 //Creation de la classe Question
 class Question
@@ -27,42 +24,42 @@ $question2->reponse = '9';
 
 $question3 = new Question();
 $question3->question = 'Dans Bleach comment s’appelle l’endroit où vivent les Shinigami ?';
-$question3->img = './imgAnime/Soul_society.jpg';
+$question3->img = './imgAnime/question3.jpg';
 $question3->reponse = 'soul society';
 
 $question4 = new Question();
 $question4->question = 'Ou luffy a-t-il passer son enfance?';
-$question4->img = './imgAnime/Village_de_Fushsia_Anime_Infobox.png';
+$question4->img = './imgAnime/question4.png';
 $question4->reponse = 'fushia';
 
 $question5 = new Question();
 $question5->question = 'Comment se nomme se personnage ?';
-$question5->img = './imgAnime/Maka-Albarn.jpg';
+$question5->img = './imgAnime/question5.jpg';
 $question5->reponse = 'maka albarn';
 
 $question6 = new Question();
 $question6->question = 'Comment se nomme se personnage ?';
-$question6->img = './imgAnime/taiju.jpg';
+$question6->img = './imgAnime/question6.jpg';
 $question6->reponse = 'taiju';
 
 $question7 = new Question();
 $question7->question = 'Quelle est cette anime ?';
-$question7->img = './imgAnime/moriarty-the-patriot.jpg';
+$question7->img = './imgAnime/question7.jpg';
 $question7->reponse = 'moriaty';
 
 $question8 = new Question();
 $question8->question = 'Comment se nomme se personnage ?';
-$question8->img = './imgAnime/kasumi_miwa.jpg';
+$question8->img = './imgAnime/question8.jpg';
 $question8->reponse = 'kasumi miwa';
 
 $question9 = new Question();
 $question9->question = 'Quelle est cette anime ?';
-$question9->img = './imgAnime/beelzebub.png';
+$question9->img = './imgAnime/question9.png';
 $question9->reponse = 'beelzebub';
 
 $question10 = new Question();
 $question10->question = 'Dans Snk combien de personne rentrent en vie après avoir rebouche le mur Maria?';
-$question10->img = './imgAnime/VsRM1dP.jpg';
+$question10->img = './imgAnime/question10.jpg';
 $question10->reponse = '9';
 
 //Creation du tableau avec les question
@@ -76,23 +73,29 @@ $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING
 //     $imageChoisi = $anime[$random];
 // }
 
-$RequestSignature = md5($_SERVER['REQUEST_URI'].$_SERVER['QUERY_STRING'].print_r($_POST, true));
 
-if ($_SESSION['LastRequest'] == $RequestSignature)
-{
-    $_SESSION["score"] = 0;
+if (!isset($_SESSION["imageChoisie"])) {
+
+    //premiere fois 
+    $_SESSION["score"] = 0;    
     $imageChoisi = $anime[$random];
-}   
-else
-{
-    $_SESSION["score"]++;
-    $imageChoisi = $anime[$random];
-  $_SESSION['LastRequest'] = $RequestSignature;
+    $_SESSION["imageChoisie"]=$imageChoisi;
+    
+} else {
+    //refresh
+    if (filter_has_var(INPUT_POST, "envoyer")) {
+        $imageChoisi=$_SESSION["imageChoisie"];
+        if ($reponseUtilisateur == $imageChoisi->reponse) {
+            $_SESSION["score"]++;
+        }
+        $imageChoisi = $anime[$random];
+        $_SESSION["imageChoisie"]=$imageChoisi;     
+    }
 }
 
 //apres  qu'on est validé notre choix
 
-// if (filter_has_var(INPUT_POST, "envoyer")) {
+// 
 //     if ($reponseUtilisateur == $imageChoisi->reponse) {
 //         $_SESSION["score"]++;
 //         $imageChoisi = $anime[$random];
@@ -100,17 +103,14 @@ else
 // }
 if (filter_has_var(INPUT_POST, "reset")) {
     $_SESSION["score"] = 0;
+    $imageChoisi = $anime[$random];
+    
+    session_destroy();
 }
 
 //print_r($anime[$random]);
 
 
-for ($nbQuestion = 0; $nbQuestion <= 10; $nbQuestion++) {
-
-    if (filter_has_var(INPUT_POST, "envoyer")) {
-        $nbQuestion++;
-    }
-}
 
 ?>
 <!DOCTYPE html>
@@ -153,10 +153,16 @@ for ($nbQuestion = 0; $nbQuestion <= 10; $nbQuestion++) {
                 <?php
                 echo $reponseUtilisateur;
                 echo "<br>";
-                echo $imageChoisi->reponse;
+                if (isset($_SESSION["imageChoisie"]))
+                {
+                    $imageChoisi=$_SESSION["imageChoisie"];
+                    echo $imageChoisi->reponse;
+                
                 echo "<br>";
                 echo $imageChoisi->question . '<br>';
-                echo '<img src="' . $imageChoisi->img . '" >'
+                
+                echo '<img src="' . $imageChoisi->img . '" >';
+                }
                 ?>
             </tr>
             <tr>
