@@ -6,8 +6,9 @@
 body{
     width: auto;
     height: auto;
-    background: linear-gradient(to top right, #dfb7ff, #FFB0EA, #FFB1C4,#FFC099,#FFDB77,#F9F871);;   
     font-family: 'Lato', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -47,10 +48,9 @@ header ul li a{
 }
 /* -------> header <------- */
 
-form{
-   
-}
+
 .img{
     height: 400px;
     width: 400px;
+    max-width: 100%;
 }

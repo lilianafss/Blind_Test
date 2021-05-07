@@ -2,7 +2,7 @@
 session_start();
 //initialisation des variables
 $random = rand(0, 9);  
-$nbQuestion=0;
+//$nbQuestion=0;
 
 //Creation de la classe Question
 class Question
@@ -14,12 +14,12 @@ class Question
 //stockage des question,images,reponse
 $question1 = new Question();
 $question1->question = 'De quelle ville est origine Naruto ?';
-$question1->img = './imgAnime/Konohavillage.jpg';
+$question1->img = './imgAnime/question1.jpg';
 $question1->reponse = 'konoha';
 
 $question2 = new Question();
 $question2->question = 'Quel âge a Eren lorsqu’il sauve Mikasa dans la première saison ?';
-$question2->img = './imgAnime/Eren_Jäger.png';
+$question2->img = './imgAnime/question2.png';
 $question2->reponse = '9';
 
 $question3 = new Question();
@@ -64,34 +64,50 @@ $question10->reponse = '9';
 
 //Creation du tableau avec les question
 $anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
-
+//$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
+
 //la premiere fois qu'on arrive sur cette page 
 // if (!isset($_SESSION["score"])) {
 //     $_SESSION["score"] = 0;
 //     $imageChoisi = $anime[$random];
 // }
 
-
-if (!isset($_SESSION["imageChoisie"])) {
-
-    //premiere fois 
-    $_SESSION["score"] = 0;    
-    $imageChoisi = $anime[$random];
-    $_SESSION["imageChoisie"]=$imageChoisi;
+if(filter_has_var(INPUT_POST, "reset"))
+{
+    $_SESSION["score"] = 0;
+    $_SESSION["nbQuestion"]=1;  
+    $_SESSION["imageChoisie"] = $anime[$random];
     
-} else {
+    session_destroy();
+}
+
+
+if (isset($_SESSION["imageChoisie"])) {
     //refresh
     if (filter_has_var(INPUT_POST, "envoyer")) {
+      
         $imageChoisi=$_SESSION["imageChoisie"];
         if ($reponseUtilisateur == $imageChoisi->reponse) {
             $_SESSION["score"]++;
+        
         }
         $imageChoisi = $anime[$random];
-        $_SESSION["imageChoisie"]=$imageChoisi;     
+        $_SESSION["imageChoisie"]=$imageChoisi;
+        $_SESSION["nbQuestion"]++;     
     }
 }
+
+else{
+        //premiere fois 
+        $_SESSION["score"] = 0;  
+        $_SESSION["nbQuestion"]= 1;  
+        $imageChoisi = $anime[$random];
+        $_SESSION["imageChoisie"]= $imageChoisi;       
+}
+
+   
 
 //apres  qu'on est validé notre choix
 
@@ -101,12 +117,7 @@ if (!isset($_SESSION["imageChoisie"])) {
 //         $imageChoisi = $anime[$random];
 //     }
 // }
-if (filter_has_var(INPUT_POST, "reset")) {
-    $_SESSION["score"] = 0;
-    $imageChoisi = $anime[$random];
-    
-    session_destroy();
-}
+
 
 //print_r($anime[$random]);
 
@@ -120,7 +131,7 @@ if (filter_has_var(INPUT_POST, "reset")) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="style/styleJeu.css">
 
     <!-- Font Awesome -->
 
@@ -146,24 +157,29 @@ if (filter_has_var(INPUT_POST, "reset")) {
     <form action="#" method="POST">
         <table>
             <tr>
-                <td><label>Question n°: <?= $nbQuestion ?>/10 </label></td>
+                <td><label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label></td>
                 <td><label>Score : <?= $_SESSION["score"] ?></label></td>
             </tr>
-            <tr class="img">
+            <tr >
                 <?php
                 echo $reponseUtilisateur;
                 echo "<br>";
-                if (isset($_SESSION["imageChoisie"]))
-                {
-                    $imageChoisi=$_SESSION["imageChoisie"];
-                    echo $imageChoisi->reponse;
-                
-                echo "<br>";
-                echo $imageChoisi->question . '<br>';
-                
-                echo '<img src="' . $imageChoisi->img . '" >';
-                }
+               
                 ?>
+                <td class="img">
+                    <?php
+                     if (isset($_SESSION["imageChoisie"]))
+                     {
+                        $imageChoisi=$_SESSION["imageChoisie"];
+                        echo $imageChoisi->reponse;
+                    
+                        echo "<br>";
+                        echo $imageChoisi->question . '<br>';
+                    
+                        echo '<img src="' . $imageChoisi->img . '" >';
+                     }
+                    ?>
+                </td>
             </tr>
             <tr>
                 <td><input type="text" name="reponse"></td>
