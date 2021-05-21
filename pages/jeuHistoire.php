@@ -14,52 +14,52 @@ class Question
 //stockage des question,images,reponse
 $question1 = new Question();
 $question1->question = 'DE QUELLE SÉRIE CULTE EST TIRÉ CET ÉLÉMENT SYMBOLIQUE ?';
-$question1->img = './imgSeries/question1_serie.png';
+$question1->img = '../images/imgSeries/question1_serie.png';
 $question1->reponse = 'breaking bad';
 
 $question2 = new Question();
 $question2->question = 'Comment s’appelle le café dans Friends?';
-$question2->img = './imgSeries/question2_series.jpg';
+$question2->img = '../images/imgSeries/question2_series.jpg';
 $question2->reponse = 'central perk';
 
 $question3 = new Question();
 $question3->question = 'Comment s’appelle se personnage de the 100 ?';
-$question3->img = './imgSeries/question3_serie.jpg';
+$question3->img = '../images/imgSeries/question3_serie.jpg';
 $question3->reponse = 'jasper';
 
 $question4 = new Question();
 $question4->question = 'dans la casa de papel qui est la voix off de l’histoire?';
-$question4->img = './imgSeries/question4_serie.jpg';
+$question4->img = '../images/imgSeries/question4_serie.jpg';
 $question4->reponse = 'tokyo';
 
 $question5 = new Question();
 $question5->question = 'Qui est le compagnon de cellule de Charles Westmoreland ? ?';
-$question5->img = './imgSeries/question5_serie.jpg';
+$question5->img = '../images/imgSeries/question5_serie.jpg';
 $question5->reponse = 'chat';
 
 $question6 = new Question();
 $question6->question = 'comment s’appelle t’il ?';
-$question6->img = './imgSeries/question6_seriejpg.jpg';
+$question6->img = '../images/imgSeries/question6_seriejpg.jpg';
 $question6->reponse = 'demogorgon';
 
 $question7 = new Question();
 $question7->question = 'Que s est-il produit entre Hannah et Bryce ?';
-$question7->img = './imgSeries/question7_serie.jpg';
+$question7->img = '../images/imgSeries/question7_serie.jpg';
 $question7->reponse = 'viole';
 
 $question8 = new Question();
 $question8->question = 'comment se nomment tous les personnage présent sur cette image (aller de gauge à droite et mettez une virgule pour séparer les prénoms) ?';
-$question8->img = './imgSeries/question8_serie.jpg';
+$question8->img = '../images/imgSeries/question8_serie.jpg';
 $question8->reponse = 'Robb,John,Sansa,Arya,Bran,Rickon';
 
 $question9 = new Question();
 $question9->question = 'dans pll Qui est le premier -A ?';
-$question9->img = './imgSeries/question9_serie.jpg';
+$question9->img = '../images/imgSeries/question9_serie.jpg';
 $question9->reponse = 'mona';
 
 $question10 = new Question();
 $question10->question = 'qui est ce personnage?';
-$question10->img = './imgSeries/question10_serie.png';
+$question10->img = '../images/imgSeries/question10_serie.png';
 $question10->reponse = 'aiden';
 
 //Creation du tableau avec les question
@@ -133,7 +133,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/styleJeu.css">
+    <link rel="stylesheet" href="../style/styleJeu.css">
 
     <!-- Font Awesome -->
 
@@ -150,7 +150,7 @@ if (isset($_SESSION["imageChoisie"])) {
             <nav class="nav">
                 <ul>
                     <li><a href="./categories.html">categories</a></li>
-                    <li><a href="./index.html"><i class="fas fa-2x fa-home"></i></a></li>
+                    <li><a href="../index.html"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
         </header>
