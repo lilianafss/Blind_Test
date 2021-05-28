@@ -162,22 +162,16 @@ if (isset($_SESSION["imageChoisie"])) {
                 <td><label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label></td>
                 <td><label>Score : <?= $_SESSION["score"] ?></label></td>
             </tr>
-            <tr>
-                <?php
-                echo $reponseUtilisateur;
-                echo "<br>";
-
-                ?>
+            <tr style="text-align: center;">
                 <td class="img">
                     <?php
                     if (isset($_SESSION["imageChoisie"])) {
                         $imageChoisi = $_SESSION["imageChoisie"];
-                        echo $imageChoisi->reponse;
 
                         echo "<br>";
                         echo $imageChoisi->question . '<br>';
 
-                        echo '<img style="height: 500px; width: 600px;" src="' . $imageChoisi->img . '">';
+                        echo '<img style="height: 700px; width: 900px; " src="' . $imageChoisi->img . '">';
                     }
                     ?>
                 </td>

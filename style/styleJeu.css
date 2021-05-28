@@ -40,8 +40,11 @@ header ul li a{
 }
 /* -------> header <------- */
 
+table {
+    background-color: aqua;
+    margin: 80px auto;
+}
 
-.tr{
-    padding: 52px;
-
+input{
+    margin-top: 20px;
 }

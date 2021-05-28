@@ -157,22 +157,16 @@ if (isset($_SESSION["imageChoisie"])) {
     </div>
 
     <form action="#" method="POST">
-        <table>
-            <tr class="infoJeu">
+        <table >
+            <tr>
                 <td><label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label></td>
                 <td><label>Score : <?= $_SESSION["score"] ?></label></td>
             </tr>
             <tr>
-                <?php
-                echo $reponseUtilisateur;
-                echo "<br>";
-
-                ?>
                 <td class="img">
                     <?php
                     if (isset($_SESSION["imageChoisie"])) {
                         $imageChoisi = $_SESSION["imageChoisie"];
-                        echo $imageChoisi->reponse;
 
                         echo "<br>";
                         echo $imageChoisi->question . '<br>';
@@ -182,13 +176,14 @@ if (isset($_SESSION["imageChoisie"])) {
                     ?>
                 </td>
             </tr>
-            <tr>
+            <tr class="reponse">
                 <td><input type="text" name="reponse"></td>
                 <td><input type="submit" name="envoyer" value="envoyer"></td>
                 <td><input type="submit" name="reset" value="reset"></td>
             </tr>
         </table>
     </form>
+
 </body>
 
 </html>
