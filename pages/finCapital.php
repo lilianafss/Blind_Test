@@ -39,7 +39,6 @@ session_start();
             </tr>
         </table>
     </form>
-
     <?php 
     if (filter_has_var(INPUT_POST, "Accueil")) {
 
@@ -51,7 +50,7 @@ session_start();
     }
     if (filter_has_var(INPUT_POST, "reset")) {
 
-        header("location:./jeuAnime.php");
+        header("location:./jeuCapital.php");
 
         $_SESSION["score"] = 0;
         $_SESSION["nbQuestion"] = 1;

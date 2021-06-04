@@ -51,7 +51,7 @@ session_start();
     }
     if (filter_has_var(INPUT_POST, "reset")) {
 
-        header("location:./jeuAnime.php");
+        header("location:./jeuhistoire.php");
 
         $_SESSION["score"] = 0;
         $_SESSION["nbQuestion"] = 1;

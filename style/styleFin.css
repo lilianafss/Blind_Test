@@ -1,0 +1,35 @@
+body{
+    height: 900px;
+    width: 900px;
+    margin: auto;
+    vertical-align: middle;
+}
+
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+.accueil{
+    margin: 10px;
+    margin-left: 340px;
+    padding: 9px 25px;
+    background: black;
+    color:white;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 10px;
+}
+.reset{
+    margin: 10px;
+    padding: 8px 35px;
+    background: black;
+    color:white;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 10px;
+}

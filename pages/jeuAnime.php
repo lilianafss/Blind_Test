@@ -75,9 +75,12 @@ $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING
 // }
 
 if (filter_has_var(INPUT_POST, "reset")) {
+    $_SESSION["numeroQuestion"] = count($anime)-1;
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
-    $_SESSION["imageChoisie"] = $anime[$random];
+    $_SESSION["imageChoisie"] = $anime[$_SESSION["numeroQuestion"]];
+    $_SESSION["question"] = $anime;
+
 
     session_destroy();
 }
@@ -85,28 +88,43 @@ if (filter_has_var(INPUT_POST, "reset")) {
 
 if (isset($_SESSION["imageChoisie"])) {
     //refresh
-    if (filter_has_var(INPUT_POST, "envoyer")) {
 
+    if (filter_has_var(INPUT_POST, "envoyer")) {
+        $random = $_SESSION["numeroQuestion"];
+        $ListeQuestion = $_SESSION["question"];
         $imageChoisi = $_SESSION["imageChoisie"];
+
+      
+        array_pop($ListeQuestion);
+        $_SESSION["question"] = $ListeQuestion;
+       
+
+        $random =count($ListeQuestion)-1;
+        $_SESSION["numeroQuestion"] = $random;
         if ($reponseUtilisateur == $imageChoisi->reponse) {
             $_SESSION["score"]++;
         }
-        $imageChoisi = $anime[$random];
+
+        $imageChoisi = $ListeQuestion[$random];
         $_SESSION["imageChoisie"] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
-            header("location: ./fin.php");
-            $_SESSION["nbQuestion"]=1;
+            header("location: ./finJeuxVideo.php");
+            $_SESSION["nbQuestion"] = 1;
             exit;
         }
     }
 } else {
     //premiere fois 
+
+    $_SESSION["numeroQuestion"] = count($anime)-1;
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
-    $imageChoisi = $anime[$random];
+    $imageChoisi = $anime[$_SESSION["numeroQuestion"]];
     $_SESSION["imageChoisie"] = $imageChoisi;
+    $_SESSION["question"] = $anime;
 }
+
 
 
 
@@ -146,7 +164,7 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="title">Blind Test</h2>
+            <h1 class="title">Blind Test</h1>
             <nav class="nav">
                 <ul>
                     <li><a href="./categories.html">categories</a></li>
@@ -169,7 +187,7 @@ if (isset($_SESSION["imageChoisie"])) {
                         $imageChoisi = $_SESSION["imageChoisie"];
 
                         echo "<br>";
-                        echo $imageChoisi->question . '<br>';
+                        echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
 
                         echo '<img style="height: 700px; width: 900px; " src="' . $imageChoisi->img . '">';
                     }
@@ -177,9 +195,11 @@ if (isset($_SESSION["imageChoisie"])) {
                 </td>
             </tr>
             <tr>
-                <td><input type="text" name="reponse"></td>
-                <td><input type="submit" name="envoyer" value="envoyer"></td>
-                <td><input type="submit" name="reset" value="reset"></td>
+                <td>
+                    <input type="text" name="reponse" placeholder="Reponse">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="reset" value="reset" class="reset">
+                </td>
             </tr>
         </table>
     </form>

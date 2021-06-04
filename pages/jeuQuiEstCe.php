@@ -13,57 +13,62 @@ class Question
 }
 //stockage des question,images,reponse
 $question1 = new Question();
-$question1->question = 'DE QUELLE SÉRIE CULTE EST TIRÉ CET ÉLÉMENT SYMBOLIQUE ?';
-$question1->img = '../images/imgSeries/question1_serie.png';
-$question1->reponse = 'breaking bad';
+$question1->question = 'Qui est ce ?';
+$question1->img = '../images/imgCapital/Question1_qui.jpg';
+$question1->reponse = 'Shakira';
 
 $question2 = new Question();
-$question2->question = 'Comment s’appelle le café dans Friends?';
-$question2->img = '../images/imgSeries/question2_series.jpg';
-$question2->reponse = 'central perk';
+$question2->question = 'Qui est ce ?';
+$question2->img = '../images/imgCapital/Question2_qui.jpg';
+$question2->reponse = 'Drake';
 
 $question3 = new Question();
-$question3->question = 'Comment s’appelle se personnage de the 100 ?';
-$question3->img = '../images/imgSeries/question3_serie.jpg';
-$question3->reponse = 'jasper';
+$question3->question = 'Qui est ce ?';
+$question3->img = '../images/imgCapital/Question3_qui.jpg';
+$question3->reponse = 'Beyonce';
 
 $question4 = new Question();
-$question4->question = 'dans la casa de papel qui est la voix off de l’histoire?';
-$question4->img = '../images/imgSeries/question4_serie.jpg';
-$question4->reponse = 'tokyo';
+$question4->question = 'Qui est ce ?';
+$question4->img = '../images/imgCapital/Question4_qui.jpg';
+$question4->reponse = 'Brad Pitt';
 
 $question5 = new Question();
-$question5->question = 'Qui est le compagnon de cellule de Charles Westmoreland ? ?';
-$question5->img = '../images/imgSeries/question5_serie.jpg';
-$question5->reponse = 'chat';
+$question5->question = 'Qui est ce ?';
+$question5->img = '../images/imgCapital/Question5_qui.jpg';
+$question5->reponse = 'Rihanna';
 
 $question6 = new Question();
-$question6->question = 'comment s’appelle t’il ?';
-$question6->img = '../images/imgSeries/question6_seriejpg.jpg';
-$question6->reponse = 'demogorgon';
+$question6->question = 'Qui est ce ?';
+$question6->img = '../images/imgCapital/Question6_qui.jpg';
+$question6->reponse = 'shwarzenegger';
 
 $question7 = new Question();
-$question7->question = 'Que s est-il produit entre Hannah et Bryce ?';
-$question7->img = '../images/imgSeries/question7_serie.jpg';
-$question7->reponse = 'viole';
+$question7->question = 'Qui est ce ?';
+$question7->img = '../images/imgCapital/Question7_qui.jpg';
+$question7->reponse = 'Taylor Swift';
 
 $question8 = new Question();
-$question8->question = 'comment se nomment tous les personnage présent sur cette image (aller de gauge à droite et mettez une virgule pour séparer les prénoms) ?';
-$question8->img = '../images/imgSeries/question8_serie.jpg';
-$question8->reponse = 'Robb,John,Sansa,Arya,Bran,Rickon';
+$question8->question = 'Qui est ce ?';
+$question8->img = '../images/imgCapital/Question8_qui.jpg';
+$question8->reponse = 'Dua Lipa';
 
 $question9 = new Question();
-$question9->question = 'dans pll Qui est le premier -A ?';
-$question9->img = '../images/imgSeries/question9_serie.jpg';
-$question9->reponse = 'mona';
+$question9->question = 'Qui est ce ?';
+$question9->img = '../images/imgCapital/Question9_cqui.jpg';
+$question9->reponse = 'Florent pagny';
 
 $question10 = new Question();
-$question10->question = 'qui est ce personnage?';
-$question10->img = '../images/imgSeries/question10_serie.png';
-$question10->reponse = 'aiden';
+$question10->question = 'Qui est ce ?';
+$question10->img = '../images/imgCapital/Question10_qui.jpg';
+$question10->reponse = 'Ariana Grande';
+
+$question11 = new Question();
+$question11->question = 'Qui est ce ?';
+$question11->img = '../images/imgCapital/Question11_qui.jpg';
+$question11->reponse = 'chris hemsworth';
 
 //Creation du tableau avec les question
-$anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
+$anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10,$question11);
 //$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
@@ -75,9 +80,12 @@ $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING
 // }
 
 if (filter_has_var(INPUT_POST, "reset")) {
+    $_SESSION["numeroQuestion"] = count($anime)-1;
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
-    $_SESSION["imageChoisie"] = $anime[$random];
+    $_SESSION["imageChoisie"] = $anime[$_SESSION["numeroQuestion"]];
+    $_SESSION["question"] = $anime;
+
 
     session_destroy();
 }
@@ -85,28 +93,43 @@ if (filter_has_var(INPUT_POST, "reset")) {
 
 if (isset($_SESSION["imageChoisie"])) {
     //refresh
-    if (filter_has_var(INPUT_POST, "envoyer")) {
 
+    if (filter_has_var(INPUT_POST, "envoyer")) {
+        $random = $_SESSION["numeroQuestion"];
+        $ListeQuestion = $_SESSION["question"];
         $imageChoisi = $_SESSION["imageChoisie"];
+
+      
+        array_pop($ListeQuestion);
+        $_SESSION["question"] = $ListeQuestion;
+       
+
+        $random =count($ListeQuestion)-1;
+        $_SESSION["numeroQuestion"] = $random;
         if ($reponseUtilisateur == $imageChoisi->reponse) {
             $_SESSION["score"]++;
         }
-        $imageChoisi = $anime[$random];
+
+        $imageChoisi = $ListeQuestion[$random];
         $_SESSION["imageChoisie"] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
-            header("location: ./finSerie.php");
-            $_SESSION["nbQuestion"]=1;
+            header("location: ./finQuiEstCe.php");
+            $_SESSION["nbQuestion"] = 1;
             exit;
         }
     }
 } else {
     //premiere fois 
+
+    $_SESSION["numeroQuestion"] = count($anime)-1;
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
-    $imageChoisi = $anime[$random];
+    $imageChoisi = $anime[$_SESSION["numeroQuestion"]];
     $_SESSION["imageChoisie"] = $imageChoisi;
+    $_SESSION["question"] = $anime;
 }
+
 
 
 
@@ -162,30 +185,26 @@ if (isset($_SESSION["imageChoisie"])) {
                 <td><label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label></td>
                 <td><label>Score : <?= $_SESSION["score"] ?></label></td>
             </tr>
-            <tr>
-                <?php
-                echo $reponseUtilisateur;
-                echo "<br>";
-
-                ?>
+            <tr style="text-align: center;">
                 <td class="img">
                     <?php
                     if (isset($_SESSION["imageChoisie"])) {
                         $imageChoisi = $_SESSION["imageChoisie"];
-                        echo $imageChoisi->reponse;
 
                         echo "<br>";
-                        echo $imageChoisi->question . '<br>';
+                        echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
 
-                        echo '<img style="height: 500px; width: 600px;" src="' . $imageChoisi->img . '">';
+                        echo '<img style="height: 700px; width: 900px; " src="' . $imageChoisi->img . '">';
                     }
                     ?>
                 </td>
             </tr>
             <tr>
-                <td><input type="text" name="reponse"></td>
-                <td><input type="submit" name="envoyer" value="envoyer"></td>
-                <td><input type="submit" name="reset" value="reset"></td>
+                <td>
+                    <input type="text" name="reponse" placeholder="Reponse">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="reset" value="reset" class="reset">
+                </td>
             </tr>
         </table>
     </form>
