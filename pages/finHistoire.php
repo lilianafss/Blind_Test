@@ -7,6 +7,11 @@ session_start();
 
 ?>
 <!DOCTYPE html>
+<!--
+    Auteurs : Ania Marostica, Liliana Santos
+    Projet : BlindTest/ Quiz
+    Version: 1.0
+-->
 <html lang="en">
 
 <head>
@@ -26,15 +31,15 @@ session_start();
 <h1>Felicitation tu as fini avec un score excellent</h1>
 <?php } ?>
 
-
+    <!--Affichage du score-->
    
     <h2>ton score est de : <?php echo $_SESSION["score"] ?></h2>
     <form method="post">
         <table>
             <tr>
                 <td > 
-                    <input type="submit" name="Accueil" value="Accueil" class="accueil">
-                    <input type="submit" name="reset" value="reset" class="reset">
+                    <input type="submit" name="Accueil" value="Categories" class="accueil">
+                    <input type="submit" name="reset" value="Reset" class="reset">
                 </td>
             </tr>
         </table>

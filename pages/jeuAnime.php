@@ -125,10 +125,6 @@ if (isset($_SESSION["imageChoisie"])) {
     $_SESSION["question"] = $anime;
 }
 
-
-
-
-
 //apres  qu'on est validé notre choix
 
 // 
@@ -145,6 +141,11 @@ if (isset($_SESSION["imageChoisie"])) {
 
 ?>
 <!DOCTYPE html>
+<!--
+    Auteurs : Ania Marostica, Liliana Santos
+    Projet : BlindTest/ Quiz
+    Version: 1.0
+-->
 <html lang="en">
 
 <head>

@@ -143,6 +143,11 @@ if (isset($_SESSION["imageChoisie"])) {
 
 ?>
 <!DOCTYPE html>
+<!--
+    Auteurs : Ania Marostica, Liliana Santos
+    Projet : BlindTest/ Quiz
+    Version: 1.0
+-->
 <html lang="en">
 
 <head>

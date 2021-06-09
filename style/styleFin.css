@@ -1,17 +1,28 @@
+/*
+    Auteurs : Ania Marostica, Liliana Santos
+    Projet : BlindTest/ Quiz
+    Version: 1.0
+*/
 body{
     height: 900px;
     width: 900px;
     margin: auto;
+    margin-top: 180px;
     vertical-align: middle;
 }
 
+/* -------> titres<------- */
 h1{
     text-align: center;
+    margin-bottom: 100px;
 }
 h2{
     text-align: center;
+    margin-bottom: 50px;
 }
+/* -------> titres<------- */
 
+/* -------> input submit <------- */
 .accueil{
     margin: 10px;
     margin-left: 340px;
@@ -33,3 +44,5 @@ h2{
     -webkit-border-radius: 5px;
     border-radius: 10px;
 }
+
+/* -------> input submit <------- */
