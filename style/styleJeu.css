@@ -13,6 +13,9 @@ body{
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    background-image: url("../images/background.jpg");
+    background-color: #cccccc;
+    background-size: 100%;
 }
 
 
@@ -52,7 +55,7 @@ header ul li a{
 /* -------> header <------- */
 
 table {
-    margin: 80px auto;
+    margin: 140px auto;
 }
 
 /* -------> input text <------- */
@@ -62,16 +65,16 @@ input{
 
 input[type=text]{
     background-color: white;
-    width: 60%;
+    width: 500px;
     height: 30px;
     border: none;
-    border-bottom: 3px solid black;
+    border-bottom: 5px solid black;
     margin-right: 100px;
 
 }
 
 input[type=text]:focus{
-    border-bottom-color: red;
+    border-bottom-color: steelblue;
     outline: none;
 }
 
@@ -83,7 +86,7 @@ input[type=text]:focus{
     padding: 9px 25px;
     background: black;
     color:white;
-    border: 0 none;
+    border: 3px solid steelblue;
     cursor: pointer;
     -webkit-border-radius: 5px;
     border-radius: 10px;
@@ -93,7 +96,7 @@ input[type=text]:focus{
     padding: 8px 35px;
     background: black;
     color:white;
-    border: 0 none;
+    border: 3px solid steelblue;
     cursor: pointer;
     -webkit-border-radius: 5px;
     border-radius: 10px;
@@ -102,5 +105,15 @@ input[type=text]:focus{
 
 
 .infoJeu{
-    font-size: 20px;
+    font-size: 25px;
+    color: white;
+}
+
+td{
+    padding-bottom: 20px;
+}
+
+.envoyer td{
+    padding-top: 25px;
+
 }

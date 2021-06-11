@@ -13,7 +13,7 @@ class Question
 }
 //stockage des question,images,reponse
 $question1 = new Question();
-$question1->question = 'DE QUELLE SÉRIE CULTE EST TIRÉ CET ÉLÉMENT SYMBOLIQUE ?';
+$question1->question = 'De quelle série culte est tiré cet élément symbolique ?';
 $question1->img = '../images/imgSeries/question1_serie.png';
 $question1->reponse = 'breaking bad';
 
@@ -28,7 +28,7 @@ $question3->img = '../images/imgSeries/question3_serie.jpg';
 $question3->reponse = 'jasper';
 
 $question4 = new Question();
-$question4->question = 'dans la casa de papel qui est la voix off de l’histoire?';
+$question4->question = 'Dans la casa de papel qui est la voix off de l’histoire?';
 $question4->img = '../images/imgSeries/question4_serie.jpg';
 $question4->reponse = 'tokyo';
 
@@ -38,7 +38,7 @@ $question5->img = '../images/imgSeries/question5_serie.jpg';
 $question5->reponse = 'chat';
 
 $question6 = new Question();
-$question6->question = 'comment s’appelle t’il ?';
+$question6->question = 'Comment s’appelle t’il ?';
 $question6->img = '../images/imgSeries/question6_seriejpg.jpg';
 $question6->reponse = 'demogorgon';
 
@@ -48,17 +48,17 @@ $question7->img = '../images/imgSeries/question7_serie.jpg';
 $question7->reponse = 'viole';
 
 $question8 = new Question();
-$question8->question = 'comment se nomment tous les personnage présent sur cette image (aller de gauge à droite et mettez une virgule pour séparer les prénoms) ?';
+$question8->question = 'Comment se nomment tous les personnage présent sur cette image (aller de gauge à droite et mettez une virgule pour séparer les prénoms) ?';
 $question8->img = '../images/imgSeries/question8_serie.jpg';
 $question8->reponse = 'Robb,John,Sansa,Arya,Bran,Rickon';
 
 $question9 = new Question();
-$question9->question = 'dans pll Qui est le premier -A ?';
+$question9->question = 'Dans pll Qui est le premier -A ?';
 $question9->img = '../images/imgSeries/question9_serie.jpg';
 $question9->reponse = 'mona';
 
 $question10 = new Question();
-$question10->question = 'qui est ce personnage?';
+$question10->question = 'Qui est ce personnage?';
 $question10->img = '../images/imgSeries/question10_serie.png';
 $question10->reponse = 'aiden';
 
@@ -179,27 +179,27 @@ if (isset($_SESSION["imageChoisie"])) {
     </div>
 
     <form action="#" method="POST">
-        <table >
-            <tr>
+        <table>
+            <tr class="infoJeu">
                 <td><label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label></td>
                 <td><label>Score : <?= $_SESSION["score"] ?></label></td>
             </tr>
             <tr style="text-align: center;">
-                <td class="img">
+                <td class="img" style="text-align:center;">
                     <?php
                     if (isset($_SESSION["imageChoisie"])) {
                         $imageChoisi = $_SESSION["imageChoisie"];
 
                         echo "<br>";
-                        echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
+                        echo '<p style="font-size: 40px; color: white;">', $imageChoisi->question . '</p> <br>';
 
-                        echo '<img style="height: 700px; width: 900px; " src="' . $imageChoisi->img . '">';
+                        echo '<img style="height: 400px; width: 500px; " src="' . $imageChoisi->img . '">';
                     }
                     ?>
                 </td>
             </tr>
-            <tr>
-                <td>
+            <tr class="envoyer">
+                <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
                     <input type="submit" name="envoyer" value="envoyer" class="submit">
                     <input type="submit" name="reset" value="reset" class="reset">

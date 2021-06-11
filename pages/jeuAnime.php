@@ -182,21 +182,21 @@ if (isset($_SESSION["imageChoisie"])) {
                 <td><label>Score : <?= $_SESSION["score"] ?></label></td>
             </tr>
             <tr style="text-align: center;">
-                <td class="img">
+                <td class="img" style="text-align:center;">
                     <?php
                     if (isset($_SESSION["imageChoisie"])) {
                         $imageChoisi = $_SESSION["imageChoisie"];
 
                         echo "<br>";
-                        echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
+                        echo '<p style="font-size: 40px; color: white;">', $imageChoisi->question . '</p> <br>';
 
-                        echo '<img style="height: 700px; width: 900px; " src="' . $imageChoisi->img . '">';
+                        echo '<img style="height: 400px; width: 500px; " src="' . $imageChoisi->img . '">';
                     }
                     ?>
                 </td>
             </tr>
-            <tr>
-                <td>
+            <tr class="envoyer">
+                <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
                     <input type="submit" name="envoyer" value="envoyer" class="submit">
                     <input type="submit" name="reset" value="reset" class="reset">

@@ -15,52 +15,52 @@ class Question
 $question1 = new Question();
 $question1->question = 'Quel est la capitale de la Guinée ?';
 $question1->img = '../images/imgCapital/Question1_capital.png';
-$question1->reponse = 'Conakry';
+$question1->reponse = 'conakry';
 
 $question2 = new Question();
 $question2->question = 'Quel est la capitale du Maroc ?';
 $question2->img = '../images/imgCapital/Question2_capital.jpg';
-$question2->reponse = 'Rabat';
+$question2->reponse = 'rabat';
 
 $question3 = new Question();
 $question3->question = 'Quel est la capitale de la Mongolie ?';
 $question3->img = '../images/imgCapital/Question3_capital.png';
-$question3->reponse = 'Oulan-Bator';
+$question3->reponse = 'oulan-Bator';
 
 $question4 = new Question();
 $question4->question = 'Quel est la capitale de l’Israël?';
 $question4->img = '../images/imgCapital/Question4_capital.png';
-$question4->reponse = 'Jérusalem';
+$question4->reponse = 'jerusalem';
 
 $question5 = new Question();
 $question5->question = 'Quel est la capitale de Taiwan?';
 $question5->img = '../images/imgCapital/Question5_capital.jpg';
-$question5->reponse = 'Taipei';
+$question5->reponse = 'taipei';
 
 $question6 = new Question();
 $question6->question = 'Quel est la capitale de la Turquie?';
 $question6->img = '../images/imgCapital/Question6_capital.png';
-$question6->reponse = 'Ankara';
+$question6->reponse = 'ankara';
 
 $question7 = new Question();
 $question7->question = 'Quel est la capitale du Portugal?';
-$question7->img = '../images/imgCapital/Question7_capital.jpg';
-$question7->reponse = 'Lisbonne';
+$question7->img = '../images/imgCapital/Question7_capitale.jpg';
+$question7->reponse = 'lisbonne';
 
 $question8 = new Question();
 $question8->question = 'Quel est la capitale du Brésil?';
 $question8->img = '../images/imgCapital/Question8_capital.png';
-$question8->reponse = ' Brasilia';
+$question8->reponse = ' brasilia';
 
 $question9 = new Question();
 $question9->question = 'Quel est la capitale de la Pologne?';
 $question9->img = '../images/imgCapital/Question9_capital.png';
-$question9->reponse = 'Varsovie';
+$question9->reponse = 'varsovie';
 
 $question10 = new Question();
 $question10->question = 'Quel est la capitale de l’Australie?';
 $question10->img = '../images/imgCapital/Question10_capital.png';
-$question10->reponse = 'Canberra';
+$question10->reponse = 'canberra';
 
 //Creation du tableau avec les question
 $anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
@@ -186,21 +186,21 @@ if (isset($_SESSION["imageChoisie"])) {
                 <td><label>Score : <?= $_SESSION["score"] ?></label></td>
             </tr>
             <tr style="text-align: center;">
-                <td class="img">
+                <td class="img" style="text-align:center;">
                     <?php
                     if (isset($_SESSION["imageChoisie"])) {
                         $imageChoisi = $_SESSION["imageChoisie"];
 
                         echo "<br>";
-                        echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
+                        echo '<p style="font-size: 40px; color: white;">', $imageChoisi->question . '</p> <br>';
 
-                        echo '<img style="height: 700px; width: 900px; " src="' . $imageChoisi->img . '">';
+                        echo '<img style="height: 400px; width: 500px; " src="' . $imageChoisi->img . '">';
                     }
                     ?>
                 </td>
             </tr>
-            <tr>
-                <td>
+            <tr class="envoyer">
+                <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
                     <input type="submit" name="envoyer" value="envoyer" class="submit">
                     <input type="submit" name="reset" value="reset" class="reset">
