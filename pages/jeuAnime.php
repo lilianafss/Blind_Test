@@ -165,11 +165,11 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h1 class="title">Blind Test</h1>
+            <h1 class="header__title">Blind Test</h1>
             <nav class="nav">
                 <ul>
-                    <li><a href="./categories.html">categories</a></li>
-                    <li><a href="../index.html"><i class="fas fa-2x fa-home"></i></a></li>
+                    <li class="nav__link"><a href="./categories.html">categories</a></li>
+                    <li class="nav__link"><a href="../index.html"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
         </header>

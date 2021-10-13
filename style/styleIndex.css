@@ -17,14 +17,7 @@ body{
 
 
 /* -------> header <------- */
-header .title{
-    font-size: 28px;
-    font-weight: 700;
-    color:#fff;
-    float: left;
-}
-
-header{
+.header{
    position: fixed;
    top:0;
    left: 0;
@@ -34,21 +27,11 @@ header{
    
 }
 
-header .nav{
-    float: right;
-    margin-top: 5px;
-}
-
-header ul li{
-    display: inline-block;
-}
-header ul li a{
-   text-decoration: none;
-   font-size: 16px;
-   color:#fff;
-    margin: 0 25px;
-    font-weight: 300;
-    letter-spacing: 1px;
+.header__title{
+    font-size: 28px;
+    font-weight: 700;
+    color:#fff;
+    float: left;
 }
 /* -------> header <------- */
 
@@ -115,11 +98,11 @@ header ul li a{
     transform: translate(-50%, -50%);
 }
 
-.link_wrapper{
+.button__link_wrapper{
     position: relative;
 }
 
-.link_wrapper a{
+.button__link_wrapper a{
     display: block;
     width: 250px;
     height: 50px;
@@ -134,7 +117,7 @@ header ul li a{
     transition: all .35s;
 }
 
-.icon{
+.button__icon{
     width: 50px;
     height: 50px;
     border: 3px solid transparent;
@@ -146,7 +129,7 @@ header ul li a{
     transition: all .35s;
 }
 
-.icon svg{
+.button__icon svg{
     width: 30px;
     position: absolute;
     top: calc(50% - 15px);
@@ -156,14 +139,14 @@ header ul li a{
     transition: all .35s;
 }
 
-.link_wrapper a:hover{
+.button__link_wrapper a:hover{
     width: 200px;
     border: 3px solid #fff;
     background: transparent;
     color: #fff;
 }
 
-.link_wrapper a:hover + .icon{
+.button__link_wrapper a:hover + .button__icon{
     border: 3px solid #fff;
     right: -25%;
 }

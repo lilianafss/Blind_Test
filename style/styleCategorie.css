@@ -11,7 +11,7 @@
 body{
     width: auto;
     height: auto;
-    background-image: url("../images/background.jpg");
+   /* background-image: url("../images/background.jpg");*/
     background-color: #cccccc;
     background-size: 100%;
 
@@ -24,7 +24,7 @@ hr {
     margin-top: 5%;
     
    
-  }
+}
 
 p{
     margin-top: 5%;
@@ -33,7 +33,7 @@ p{
 }
 
 
-header .title{
+.header .header__title{
     font-size: 28px;
     font-weight: 700;
     color:#fff;
@@ -41,7 +41,7 @@ header .title{
 }
 
 /* -------> header <------- */
-header{
+.header{
    position: fixed;
    top:0;
    left: 0;
@@ -50,15 +50,16 @@ header{
    background: linear-gradient(to top, transparent, rgba(0,0,0,0.6));
 }
 
-header .nav{
+.nav{
     float: right;
     margin-top: 5px;
 }
 
-header ul li{
+.nav__link{
     display: inline-block;
 }
-header ul li a{
+
+.nav__link a{
    text-decoration: none;
    font-size: 16px;
    color:#fff;
@@ -68,16 +69,6 @@ header ul li a{
 }
 
 /* -------> header <------- */
-
-table{
-    margin: auto;
-    margin-top: 60px;
-    margin-left: 460px;
-}
-
-td{
-    text-align: center;
-}
 /* -------> button <------- */
 
 button{
@@ -90,7 +81,7 @@ button{
     
 }
 
-.container {
+.button__container {
     position: relative;
     width: 50%;
   }
@@ -99,7 +90,7 @@ button{
     display: block;
 }
   
-.overlay {
+.button__overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -112,11 +103,11 @@ button{
     background-color: #333333;
   }
   
-.container:hover .overlay {
+.button__container:hover .button__overlay {
     opacity: 1;
   }
   
-.text {
+.button__text {
     color: white;
     font-size: 20px;
     position: absolute;
@@ -126,10 +117,22 @@ button{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-  }
+}
+
 img{
     height: 250px;
     width: 300px;
 }
 
 /* -------> button <------- */
+
+.grid-container{
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    justify-items: end;
+}
+
+.grid-item{
+    width: 20%;
+    height: 20%;
+}
