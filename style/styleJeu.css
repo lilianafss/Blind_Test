@@ -82,7 +82,7 @@ input[type=text]:focus{
 /* -------> input text <------- */
 
 /* -------> input submit <------- */
-.submit{
+.button__submit{
     margin: 10px;
     padding: 9px 25px;
     background: black;
@@ -92,7 +92,7 @@ input[type=text]:focus{
     -webkit-border-radius: 5px;
     border-radius: 10px;
 }
-.reset{
+.button__reset{
     margin: 10px;
     padding: 8px 35px;
     background: black;

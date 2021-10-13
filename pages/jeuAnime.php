@@ -198,8 +198,8 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
-                    <input type="submit" name="envoyer" value="envoyer" class="submit">
-                    <input type="submit" name="reset" value="reset" class="reset">
+                    <input type="submit" name="envoyer" value="envoyer" class="button__submit">
+                    <input type="submit" name="reset" value="reset" class="button__reset">
                 </td>
             </tr>
         </table>

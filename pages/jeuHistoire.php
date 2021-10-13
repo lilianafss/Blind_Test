@@ -168,7 +168,7 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="title">Blind Test</h2>
+            <h2 class="header__title">Blind Test</h2>
             <nav class="nav">
                 <ul>
                     <li class="nav__link"><a href="./categories.html">categories</a></li>
@@ -201,8 +201,8 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
-                    <input type="submit" name="envoyer" value="envoyer" class="submit">
-                    <input type="submit" name="reset" value="reset" class="reset">
+                    <input type="submit" name="envoyer" value="envoyer" class="button__submit">
+                    <input type="submit" name="reset" value="reset" class="button__reset">
                 </td>
             </tr>
         </table>
