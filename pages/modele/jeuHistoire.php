@@ -13,54 +13,54 @@ class Question
 }
 //stockage des question,images,reponse
 $question1 = new Question();
-$question1->question = 'Quel est la capitale de la Guinée ?';
-$question1->img = '../images/imgCapital/Question1_capital.png';
-$question1->reponse = 'conakry';
+$question1->question = 'Quelle sont les dates de la première guerre mondial ?';
+$question1->img = '../../images/imgHistorie/Question1_histoire.jpg';
+$question1->reponse = '1914-1918';
 
 $question2 = new Question();
-$question2->question = 'Quel est la capitale du Maroc ?';
-$question2->img = '../images/imgCapital/Question2_capital.jpg';
-$question2->reponse = 'rabat';
+$question2->question = 'Quel est le « premier occidental » à avoir mis un pied en Chine ?';
+$question2->img = '../../images/imgHistorie/Question2_histoire.jpg';
+$question2->reponse = 'Marco Polo';
 
 $question3 = new Question();
-$question3->question = 'Quel est la capitale de la Mongolie ?';
-$question3->img = '../images/imgCapital/Question3_capital.png';
-$question3->reponse = 'oulan-Bator';
+$question3->question = 'Ou ont été jugés les nazis ?';
+$question3->img = '../../images/imgHistorie/Question3_histoire.jpg';
+$question3->reponse = 'Nuremberg';
 
 $question4 = new Question();
-$question4->question = 'Quel est la capitale de l’Israël?';
-$question4->img = '../images/imgCapital/Question4_capital.png';
-$question4->reponse = 'jerusalem';
+$question4->question = 'Qui a tué Marat en 1793 ?';
+$question4->img = '../../images/imgHistorie/Question4_histoire.jpg';
+$question4->reponse = 'Charlotte corday';
 
 $question5 = new Question();
-$question5->question = 'Quel est la capitale de Taiwan?';
-$question5->img = '../images/imgCapital/Question5_capital.jpg';
-$question5->reponse = 'taipei';
+$question5->question = 'Qui a dessiné l’homme de Vitruve ?';
+$question5->img = '../../images/imgHistorie/Question5_histoire.jpg';
+$question5->reponse = 'Leonard De Vinci';
 
 $question6 = new Question();
-$question6->question = 'Quel est la capitale de la Turquie?';
-$question6->img = '../images/imgCapital/Question6_capital.png';
-$question6->reponse = 'ankara';
+$question6->question = 'Quelle était la profession initiale de Gandhi ?';
+$question6->img = '../../images/imgHistorie/Question6_histoire.jpg';
+$question6->reponse = 'Avocat';
 
 $question7 = new Question();
-$question7->question = 'Quel est la capitale du Portugal?';
-$question7->img = '../images/imgCapital/Question7_capitale.jpg';
-$question7->reponse = 'lisbonne';
+$question7->question = 'Dans la mythologie romaine qui a fondé rome ?';
+$question7->img = '../../images/imgHistorie/Question7_histoire.jpg';
+$question7->reponse = 'Romulus et Rémus';
 
 $question8 = new Question();
-$question8->question = 'Quel est la capitale du Brésil?';
-$question8->img = '../images/imgCapital/Question8_capital.png';
-$question8->reponse = ' brasilia';
+$question8->question = 'Quel écrivain a pris la défense d’Alfred Dreyfus ?';
+$question8->img = '../../images/imgHistorie/Question8_histoire.jpg';
+$question8->reponse = 'Emile Zola';
 
 $question9 = new Question();
-$question9->question = 'Quel est la capitale de la Pologne?';
-$question9->img = '../images/imgCapital/Question9_capital.png';
-$question9->reponse = 'varsovie';
+$question9->question = 'Quel est la date de la chute du mur de Berlin  ?';
+$question9->img = '../../images/imgHistorie/Question9_histoire.jpg';
+$question9->reponse = '1989';
 
 $question10 = new Question();
-$question10->question = 'Quel est la capitale de l’Australie?';
-$question10->img = '../images/imgCapital/Question10_capital.png';
-$question10->reponse = 'canberra';
+$question10->question = 'Ou est situé le Parthénon ?';
+$question10->img = '../../images/imgHistorie/Question10_histoire.jpg';
+$question10->reponse = 'Athènes';
 
 //Creation du tableau avec les question
 $anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
@@ -109,7 +109,7 @@ if (isset($_SESSION["imageChoisie"])) {
         $_SESSION["imageChoisie"] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
-            header("location: ./finCapital.php");
+            header("location: ./finHistoire.php");
             $_SESSION["nbQuestion"] = 1;
             exit;
         }
@@ -124,7 +124,6 @@ if (isset($_SESSION["imageChoisie"])) {
     $_SESSION["imageChoisie"] = $imageChoisi;
     $_SESSION["question"] = $anime;
 }
-
 
 
 
@@ -156,7 +155,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/styleJeu.css">
+    <link rel="stylesheet" href="../vue/style/styleJeu.css">
 
     <!-- Font Awesome -->
 
@@ -169,7 +168,7 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="header__title">Blind Test</h2>
+            <h2 class="title">Blind Test</h2>
             <nav class="nav">
                 <ul>
                     <li class="nav__link"><a href="./categories.html">categories</a></li>
@@ -202,8 +201,8 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
-                    <input type="submit" name="envoyer" value="envoyer" class="button__submit">
-                    <input type="submit" name="reset" value="reset" class="button__reset">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="reset" value="reset" class="reset">
                 </td>
             </tr>
         </table>

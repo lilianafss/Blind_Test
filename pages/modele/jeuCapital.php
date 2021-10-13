@@ -1,5 +1,8 @@
 <?php
 session_start();
+//initialisation des variables
+$random = rand(0, 9);
+//$nbQuestion=0;
 
 //Creation de la classe Question
 class Question
@@ -10,59 +13,57 @@ class Question
 }
 //stockage des question,images,reponse
 $question1 = new Question();
-$question1->question = 'Quel est la monnaie des Sims ?';
-$question1->img = '../images/imgJeuxVideo/Question1_jeux.jpg';
-$question1->reponse = 'Simflouz';
+$question1->question = 'Quel est la capitale de la Guinée ?';
+$question1->img = '../../images/imgCapital/Question1_capital.png';
+$question1->reponse = 'conakry';
 
 $question2 = new Question();
-$question2->question = 'Dans la série Call of Duty qui est-ce ?';
-$question2->img = '../images/imgJeuxVideo/Question2_jeux.jpg';
-$question2->reponse = 'John Price';
+$question2->question = 'Quel est la capitale du Maroc ?';
+$question2->img = '../../images/imgCapital/Question2_capital.jpg';
+$question2->reponse = 'rabat';
 
 $question3 = new Question();
-$question3->question = '
-La planète sur laquelle se déroule "Borderlands" est une référence à une histoire de mythologie grecque. Quel est le nom de la planète sur laquelle se déroule "Borderlands"?';
-$question3->img = '../images/imgJeuxVideo/Question3_jeux.jpg';
-$question3->reponse = 'Pandore';
+$question3->question = 'Quel est la capitale de la Mongolie ?';
+$question3->img = '../../images/imgCapital/Question3_capital.png';
+$question3->reponse = 'oulan-Bator';
 
 $question4 = new Question();
-$question4->question = 'Dans assassin s creed black flag comment s’appelle le personnage principal ?';
-$question4->img = '../images/imgJeuxVideo/Question4_jeux.png';
-$question4->reponse = 'Edward kenway';
+$question4->question = 'Quel est la capitale de l’Israël?';
+$question4->img = '../../images/imgCapital/Question4_capital.png';
+$question4->reponse = 'jerusalem';
 
 $question5 = new Question();
-$question5->question = 'Comment se nomme La première zone de The Legend of Zelda : Breath of the Wild ?';
-$question5->img = '../images/imgJeuxVideo/Question5_jeux.jpg';
-$question5->reponse = 'Plateau du prélude';
+$question5->question = 'Quel est la capitale de Taiwan?';
+$question5->img = '../../images/imgCapital/Question5_capital.jpg';
+$question5->reponse = 'taipei';
 
 $question6 = new Question();
-$question6->question = 'De quel univers est issu Apex Legends ?';
-$question6->img = '../images/imgJeuxVideo/Question6_jeux.jpg';
-$question6->reponse = 'Titanfall';
+$question6->question = 'Quel est la capitale de la Turquie?';
+$question6->img = '../../images/imgCapital/Question6_capital.png';
+$question6->reponse = 'ankara';
 
 $question7 = new Question();
-$question7->question = 'C’est qui lui ?';
-$question7->img = '../images/imgJeuxVideo/Question7_jeux.png';
-$question7->reponse = 'Suicune';
+$question7->question = 'Quel est la capitale du Portugal?';
+$question7->img = '../../images/imgCapital/Question7_capitale.jpg';
+$question7->reponse = 'lisbonne';
 
 $question8 = new Question();
-$question8->question = 'Comment se nomme le dragon(boss Final) de skyrim?';
-$question8->img = '../images/imgJeuxVideo/Question8_jeux.jpg';
-$question8->reponse = 'Alduin';
+$question8->question = 'Quel est la capitale du Brésil?';
+$question8->img = '../../images/imgCapital/Question8_capital.png';
+$question8->reponse = ' brasilia';
 
 $question9 = new Question();
-$question9->question = 'De quel jeu provient cette image ?';
-$question9->img = '../images/imgJeuxVideo/Question9_jeux.jpg';
-$question9->reponse = 'Reign of Kings';
+$question9->question = 'Quel est la capitale de la Pologne?';
+$question9->img = '../../images/imgCapital/Question9_capital.png';
+$question9->reponse = 'varsovie';
 
 $question10 = new Question();
-$question10->question = 'De quel jeu provient cette image ?';
-$question10->img = '../images/imgJeuxVideo/Question10_jeux.jpeg';
-$question10->reponse = 'Dungeon Keeper';
+$question10->question = 'Quel est la capitale de l’Australie?';
+$question10->img = '../../images/imgCapital/Question10_capital.png';
+$question10->reponse = 'canberra';
 
 //Creation du tableau avec les question
 $anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
-
 //$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
@@ -108,7 +109,7 @@ if (isset($_SESSION["imageChoisie"])) {
         $_SESSION["imageChoisie"] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
-            header("location: ./finJeuxvideo.php");
+            header("location: ./finCapital.php");
             $_SESSION["nbQuestion"] = 1;
             exit;
         }
@@ -123,6 +124,7 @@ if (isset($_SESSION["imageChoisie"])) {
     $_SESSION["imageChoisie"] = $imageChoisi;
     $_SESSION["question"] = $anime;
 }
+
 
 
 
@@ -154,7 +156,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/styleJeu.css">
+    <link rel="stylesheet" href="../vue/style/styleJeu.css">
 
     <!-- Font Awesome -->
 
@@ -167,7 +169,7 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="header__title">Blind Test</h2>
+            <h2 class="title">Blind Test</h2>
             <nav class="nav">
                 <ul>
                     <li class="nav__link"><a href="./categories.html">categories</a></li>
@@ -176,6 +178,7 @@ if (isset($_SESSION["imageChoisie"])) {
             </nav>
         </header>
     </div>
+
     <form action="#" method="POST">
         <table>
             <tr class="infoJeu">
@@ -199,8 +202,8 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
-                    <input type="submit" name="envoyer" value="envoyer" class="button__submit">
-                    <input type="submit" name="reset" value="reset" class="button__reset">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="reset" value="reset" class="reset">
                 </td>
             </tr>
         </table>

@@ -1,8 +1,5 @@
 <?php
 session_start();
-//initialisation des variables
-$random = rand(0, 9);
-//$nbQuestion=0;
 
 //Creation de la classe Question
 class Question
@@ -13,57 +10,59 @@ class Question
 }
 //stockage des question,images,reponse
 $question1 = new Question();
-$question1->question = 'De quelle série culte est tiré cet élément symbolique ?';
-$question1->img = '../images/imgSeries/question1_serie.png';
-$question1->reponse = 'breaking bad';
+$question1->question = 'Quel est la monnaie des Sims ?';
+$question1->img = '../../images/imgJeuxVideo/Question1_jeux.jpg';
+$question1->reponse = 'Simflouz';
 
 $question2 = new Question();
-$question2->question = 'Comment s’appelle le café dans Friends?';
-$question2->img = '../images/imgSeries/question2_series.jpg';
-$question2->reponse = 'central perk';
+$question2->question = 'Dans la série Call of Duty qui est-ce ?';
+$question2->img = '../../images/imgJeuxVideo/Question2_jeux.jpg';
+$question2->reponse = 'John Price';
 
 $question3 = new Question();
-$question3->question = 'Comment s’appelle se personnage de the 100 ?';
-$question3->img = '../images/imgSeries/question3_serie.jpg';
-$question3->reponse = 'jasper';
+$question3->question = '
+La planète sur laquelle se déroule "Borderlands" est une référence à une histoire de mythologie grecque. Quel est le nom de la planète sur laquelle se déroule "Borderlands"?';
+$question3->img = '../../images/imgJeuxVideo/Question3_jeux.jpg';
+$question3->reponse = 'Pandore';
 
 $question4 = new Question();
-$question4->question = 'Dans la casa de papel qui est la voix off de l’histoire?';
-$question4->img = '../images/imgSeries/question4_serie.jpg';
-$question4->reponse = 'tokyo';
+$question4->question = 'Dans assassin s creed black flag comment s’appelle le personnage principal ?';
+$question4->img = '../../images/imgJeuxVideo/Question4_jeux.png';
+$question4->reponse = 'Edward kenway';
 
 $question5 = new Question();
-$question5->question = 'Qui est le compagnon de cellule de Charles Westmoreland ? ?';
-$question5->img = '../images/imgSeries/question5_serie.jpg';
-$question5->reponse = 'chat';
+$question5->question = 'Comment se nomme La première zone de The Legend of Zelda : Breath of the Wild ?';
+$question5->img = '../../images/imgJeuxVideo/Question5_jeux.jpg';
+$question5->reponse = 'Plateau du prélude';
 
 $question6 = new Question();
-$question6->question = 'Comment s’appelle t’il ?';
-$question6->img = '../images/imgSeries/question6_seriejpg.jpg';
-$question6->reponse = 'demogorgon';
+$question6->question = 'De quel univers est issu Apex Legends ?';
+$question6->img = '../../images/imgJeuxVideo/Question6_jeux.jpg';
+$question6->reponse = 'Titanfall';
 
 $question7 = new Question();
-$question7->question = 'Que s est-il produit entre Hannah et Bryce ?';
-$question7->img = '../images/imgSeries/question7_serie.jpg';
-$question7->reponse = 'viole';
+$question7->question = 'C’est qui lui ?';
+$question7->img = '../../images/imgJeuxVideo/Question7_jeux.png';
+$question7->reponse = 'Suicune';
 
 $question8 = new Question();
-$question8->question = 'Comment se nomment tous les personnage présent sur cette image (aller de gauge à droite et mettez une virgule pour séparer les prénoms) ?';
-$question8->img = '../images/imgSeries/question8_serie.jpg';
-$question8->reponse = 'Robb,John,Sansa,Arya,Bran,Rickon';
+$question8->question = 'Comment se nomme le dragon(boss Final) de skyrim?';
+$question8->img = '../../images/imgJeuxVideo/Question8_jeux.jpg';
+$question8->reponse = 'Alduin';
 
 $question9 = new Question();
-$question9->question = 'Dans pll Qui est le premier -A ?';
-$question9->img = '../images/imgSeries/question9_serie.jpg';
-$question9->reponse = 'mona';
+$question9->question = 'De quel jeu provient cette image ?';
+$question9->img = '../../images/imgJeuxVideo/Question9_jeux.jpg';
+$question9->reponse = 'Reign of Kings';
 
 $question10 = new Question();
-$question10->question = 'Qui est ce personnage?';
-$question10->img = '../images/imgSeries/question10_serie.png';
-$question10->reponse = 'aiden';
+$question10->question = 'De quel jeu provient cette image ?';
+$question10->img = '../../images/imgJeuxVideo/Question10_jeux.jpeg';
+$question10->reponse = 'Dungeon Keeper';
 
 //Creation du tableau avec les question
 $anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
+
 //$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
@@ -109,7 +108,7 @@ if (isset($_SESSION["imageChoisie"])) {
         $_SESSION["imageChoisie"] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
-            header("location: ./finSerie.php");
+            header("location: ./finJeuxvideo.php");
             $_SESSION["nbQuestion"] = 1;
             exit;
         }
@@ -155,7 +154,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/styleJeu.css">
+    <link rel="stylesheet" href="../vue/style/styleJeu.css">
 
     <!-- Font Awesome -->
 
@@ -168,16 +167,15 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="header__title">Blind Test</h2>
+            <h2 class="title">Blind Test</h2>
             <nav class="nav">
                 <ul>
-                    <li class="nav__link"><a href="./categories.html">categories</a></li>
-                    <li class="nav__link"><a href="../index.html"><i class="fas fa-2x fa-home"></i></a></li>
+                    <li class="nav__link"><a href="">categories</a></li>
+                    <li class="nav__link"><a href="../vue/index.html"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
         </header>
     </div>
-
     <form action="#" method="POST">
         <table>
             <tr class="infoJeu">
@@ -201,13 +199,12 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
-                    <input type="submit" name="envoyer" value="envoyer" class="button__submit">
-                    <input type="submit" name="reset" value="reset" class="button__reset">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="reset" value="reset" class="reset">
                 </td>
             </tr>
         </table>
     </form>
-
 </body>
 
 </html>
