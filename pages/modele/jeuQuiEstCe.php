@@ -13,57 +13,62 @@ class Question
 }
 //stockage des question,images,reponse
 $question1 = new Question();
-$question1->question = 'Quelle sont les dates de la première guerre mondial ?';
-$question1->img = '../images/imgHistorie/Question1_histoire.jpg';
-$question1->reponse = '1914-1918';
+$question1->question = 'Qui est ce ?';
+$question1->img = '../../imgages/imgQuiEstCe/Question1_qui.jpg';
+$question1->reponse = 'Shakira';
 
 $question2 = new Question();
-$question2->question = 'Quel est le « premier occidental » à avoir mis un pied en Chine ?';
-$question2->img = '../images/imgHistorie/Question2_histoire.jpg';
-$question2->reponse = 'Marco Polo';
+$question2->question = 'Qui est ce ?';
+$question2->img = '../../images/imgQuiEstCe/Question2_qui.jpg';
+$question2->reponse = 'Drake';
 
 $question3 = new Question();
-$question3->question = 'Ou ont été jugés les nazis ?';
-$question3->img = '../images/imgHistorie/Question3_histoire.jpg';
-$question3->reponse = 'Nuremberg';
+$question3->question = 'Qui est ce ?';
+$question3->img = '../../images/imgQuiEstCe/Question3_qui.jpg';
+$question3->reponse = 'Beyonce';
 
 $question4 = new Question();
-$question4->question = 'Qui a tué Marat en 1793 ?';
-$question4->img = '../images/imgHistorie/Question4_histoire.jpg';
-$question4->reponse = 'Charlotte corday';
+$question4->question = 'Qui est ce ?';
+$question4->img = '../../images/imgQuiEstCe/Question4_qui.jpg';
+$question4->reponse = 'Brad Pitt';
 
 $question5 = new Question();
-$question5->question = 'Qui a dessiné l’homme de Vitruve ?';
-$question5->img = '../images/imgHistorie/Question5_histoire.jpg';
-$question5->reponse = 'Leonard De Vinci';
+$question5->question = 'Qui est ce ?';
+$question5->img = '../../images/imgQuiEstCe/Question5_qui.jpg';
+$question5->reponse = 'Rihanna';
 
 $question6 = new Question();
-$question6->question = 'Quelle était la profession initiale de Gandhi ?';
-$question6->img = '../images/imgHistorie/Question6_histoire.jpg';
-$question6->reponse = 'Avocat';
+$question6->question = 'Qui est ce ?';
+$question6->img = '../../images/imgQuiEstCe/Question6_qui.jpg';
+$question6->reponse = 'shwarzenegger';
 
 $question7 = new Question();
-$question7->question = 'Dans la mythologie romaine qui a fondé rome ?';
-$question7->img = '../images/imgHistorie/Question7_histoire.jpg';
-$question7->reponse = 'Romulus et Rémus';
+$question7->question = 'Qui est ce ?';
+$question7->img = '../../images/imgQuiEstCe/Question7_qui.jpg';
+$question7->reponse = 'Taylor Swift';
 
 $question8 = new Question();
-$question8->question = 'Quel écrivain a pris la défense d’Alfred Dreyfus ?';
-$question8->img = '../images/imgHistorie/Question8_histoire.jpg';
-$question8->reponse = 'Emile Zola';
+$question8->question = 'Qui est ce ?';
+$question8->img = '../../images/imgQuiEstCe/Question8_qui.jpg';
+$question8->reponse = 'Dua Lipa';
 
 $question9 = new Question();
-$question9->question = 'Quel est la date de la chute du mur de Berlin  ?';
-$question9->img = '../images/imgHistorie/Question9_histoire.jpg';
-$question9->reponse = '1989';
+$question9->question = 'Qui est ce ?';
+$question9->img = '../../images/imgQuiEstCe/Question9_qui.jpg';
+$question9->reponse = 'Florent pagny';
 
 $question10 = new Question();
-$question10->question = 'Ou est situé le Parthénon ?';
-$question10->img = '../images/imgHistorie/Question10_histoire.jpg';
-$question10->reponse = 'Athènes';
+$question10->question = 'Qui est ce ?';
+$question10->img = '../../images/imgQuiEstCe/Question10_qui.jpg';
+$question10->reponse = 'Ariana Grande';
+
+$question11 = new Question();
+$question11->question = 'Qui est ce ?';
+$question11->img = '../../images/imgQuiEstCe/Question11_qui.jpg';
+$question11->reponse = 'chris hemsworth';
 
 //Creation du tableau avec les question
-$anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
+$anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10,$question11);
 //$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
@@ -109,7 +114,7 @@ if (isset($_SESSION["imageChoisie"])) {
         $_SESSION["imageChoisie"] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
-            header("location: ./finHistoire.php");
+            header("location: ./finQuiEstCe.php");
             $_SESSION["nbQuestion"] = 1;
             exit;
         }
@@ -124,6 +129,7 @@ if (isset($_SESSION["imageChoisie"])) {
     $_SESSION["imageChoisie"] = $imageChoisi;
     $_SESSION["question"] = $anime;
 }
+
 
 
 
@@ -155,7 +161,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/styleJeu.css">
+    <link rel="stylesheet" href="../vue/style/styleJeu.css">
 
     <!-- Font Awesome -->
 
@@ -168,10 +174,10 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="header__title">Blind Test</h2>
+            <h2 class="title">Blind Test</h2>
             <nav class="nav">
                 <ul>
-                    <li class="nav__link"><a href="./categories.html">categories</a></li>
+                    <li class="nav__link" ><a href="./categories.html">categories</a></li>
                     <li class="nav__link"><a href="../index.html"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
@@ -201,8 +207,8 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
-                    <input type="submit" name="envoyer" value="envoyer" class="button__submit">
-                    <input type="submit" name="reset" value="reset" class="button__reset">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="reset" value="reset" class="reset">
                 </td>
             </tr>
         </table>

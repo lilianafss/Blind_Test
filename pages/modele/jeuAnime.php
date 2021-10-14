@@ -13,62 +13,57 @@ class Question
 }
 //stockage des question,images,reponse
 $question1 = new Question();
-$question1->question = 'Qui est ce ?';
-$question1->img = '../imgages/imgQuiEstCe/Question1_qui.jpg';
-$question1->reponse = 'Shakira';
+$question1->question = 'De quelle ville est origine Naruto ?';
+$question1->img = '../../images/imgAnime/question1.jpg';
+$question1->reponse = 'konoha';
 
 $question2 = new Question();
-$question2->question = 'Qui est ce ?';
-$question2->img = '../images/imgQuiEstCe/Question2_qui.jpg';
-$question2->reponse = 'Drake';
+$question2->question = 'Quel âge a Eren lorsqu’il sauve Mikasa dans la première saison ?';
+$question2->img = '../../images/imgAnime/question2.png';
+$question2->reponse = '9';
 
 $question3 = new Question();
-$question3->question = 'Qui est ce ?';
-$question3->img = '../images/imgQuiEstCe/Question3_qui.jpg';
-$question3->reponse = 'Beyonce';
+$question3->question = 'Dans Bleach comment s’appelle l’endroit où vivent les Shinigami ?';
+$question3->img = '../../images/imgAnime/question3.jpg';
+$question3->reponse = 'soul society';
 
 $question4 = new Question();
-$question4->question = 'Qui est ce ?';
-$question4->img = '../images/imgQuiEstCe/Question4_qui.jpg';
-$question4->reponse = 'Brad Pitt';
+$question4->question = 'Ou luffy a-t-il passer son enfance?';
+$question4->img = '../../images/imgAnime/question4.png';
+$question4->reponse = 'fushia';
 
 $question5 = new Question();
-$question5->question = 'Qui est ce ?';
-$question5->img = '../images/imgQuiEstCe/Question5_qui.jpg';
-$question5->reponse = 'Rihanna';
+$question5->question = 'Comment se nomme se personnage ?';
+$question5->img = '../../images/imgAnime/question5.jpg';
+$question5->reponse = 'maka albarn';
 
 $question6 = new Question();
-$question6->question = 'Qui est ce ?';
-$question6->img = '../images/imgQuiEstCe/Question6_qui.jpg';
-$question6->reponse = 'shwarzenegger';
+$question6->question = 'Comment se nomme se personnage ?';
+$question6->img = '../../images/imgAnime/question6.jpg';
+$question6->reponse = 'taiju';
 
 $question7 = new Question();
-$question7->question = 'Qui est ce ?';
-$question7->img = '../images/imgQuiEstCe/Question7_qui.jpg';
-$question7->reponse = 'Taylor Swift';
+$question7->question = 'Quelle est cette anime ?';
+$question7->img = '../../images/imgAnime/question7.jpg';
+$question7->reponse = 'moriaty';
 
 $question8 = new Question();
-$question8->question = 'Qui est ce ?';
-$question8->img = '../images/imgQuiEstCe/Question8_qui.jpg';
-$question8->reponse = 'Dua Lipa';
+$question8->question = 'Comment se nomme se personnage ?';
+$question8->img = '../../images/imgAnime/question8.jpg';
+$question8->reponse = 'kasumi miwa';
 
 $question9 = new Question();
-$question9->question = 'Qui est ce ?';
-$question9->img = '../images/imgQuiEstCe/Question9_qui.jpg';
-$question9->reponse = 'Florent pagny';
+$question9->question = 'Quelle est cette anime ?';
+$question9->img = '../../images/imgAnime/question9.png';
+$question9->reponse = 'beelzebub';
 
 $question10 = new Question();
-$question10->question = 'Qui est ce ?';
-$question10->img = '../images/imgQuiEstCe/Question10_qui.jpg';
-$question10->reponse = 'Ariana Grande';
-
-$question11 = new Question();
-$question11->question = 'Qui est ce ?';
-$question11->img = '../images/imgQuiEstCe/Question11_qui.jpg';
-$question11->reponse = 'chris hemsworth';
+$question10->question = 'Dans Snk combien de personne rentrent en vie après avoir rebouche le mur Maria?';
+$question10->img = '../../images/imgAnime/question10.jpg';
+$question10->reponse = '9';
 
 //Creation du tableau avec les question
-$anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10,$question11);
+$anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
 //$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
@@ -114,7 +109,7 @@ if (isset($_SESSION["imageChoisie"])) {
         $_SESSION["imageChoisie"] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
-            header("location: ./finQuiEstCe.php");
+            header("location: ./finJeuxVideo.php");
             $_SESSION["nbQuestion"] = 1;
             exit;
         }
@@ -129,10 +124,6 @@ if (isset($_SESSION["imageChoisie"])) {
     $_SESSION["imageChoisie"] = $imageChoisi;
     $_SESSION["question"] = $anime;
 }
-
-
-
-
 
 //apres  qu'on est validé notre choix
 
@@ -149,6 +140,7 @@ if (isset($_SESSION["imageChoisie"])) {
 
 
 ?>
+
 <!DOCTYPE html>
 <!--
     Auteurs : Ania Marostica, Liliana Santos
@@ -161,7 +153,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/styleJeu.css">
+    <link rel="stylesheet" href="../vue/style/styleJeu.css">
 
     <!-- Font Awesome -->
 
@@ -174,10 +166,10 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="header__title">Blind Test</h2>
+            <h1 class="header__title">Blind Test</h1>
             <nav class="nav">
                 <ul>
-                    <li class="nav__link" ><a href="./categories.html">categories</a></li>
+                    <li class="nav__link"><a href="./categories.html">categories</a></li>
                     <li class="nav__link"><a href="../index.html"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
@@ -207,8 +199,8 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="text" name="reponse" placeholder="Reponse">
-                    <input type="submit" name="envoyer" value="envoyer" class="button__submit">
-                    <input type="submit" name="reset" value="reset" class="button__reset">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="reset" value="reset" class="reset">
                 </td>
             </tr>
         </table>

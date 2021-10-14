@@ -53,34 +53,34 @@ body{
 
 @keyframes slide{
     0%{
-        background-image: url('../images/animes.jpg');
+        background-image: url('../../../images/animes.jpg');
     }
     20%{
-        background-image: url('../images/animes.jpg');
+        background-image: url('../../../images/animes.jpg');
     }
     20.01%{
-        background-image: url('../images/histoire.jpg');
+        background-image: url('../../../images/histoire.jpg');
     }
     40%{
-        background-image: url('../images/histoire.jpg');
+        background-image: url('../../../images/histoire.jpg');
     }
     40.01%{
-        background-image: url('../images/manette.jpg');
+        background-image: url('../../../images/manette.jpg');
     }
     60%{
-        background-image: url('../images/manette.jpg');
+        background-image: url('../../../images/manette.jpg');
     }
     60.01%{
-        background-image: url('../images/netflix.png');
+        background-image: url('../../../images/netflix.png');
     }
     80%{
-        background-image: url('../images/netflix.png');
+        background-image: url('../../../images/netflix.png');
     }
     80.01%{
-        background-image: url('../images/canal-1209808_1920.jpg');
+        background-image: url('../../../images/canal-1209808_1920.jpg');
     }
     100%{
-        background-image: url('../images/canal-1209808_1920.jpg');
+        background-image: url('../../../images/canal-1209808_1920.jpg');
     }
 }
 
