@@ -1,5 +1,6 @@
 <?php
-session_start();
+//session_start();
+require_once "fonctionBD.inc.php";
 //initialisation des variables
 $random = rand(0, 9);
 //$nbQuestion=0;
@@ -68,6 +69,7 @@ $anime = array($question1, $question2, $question3, $question4, $question5, $ques
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
 
+$getSerie=getSerie();
 //la premiere fois qu'on arrive sur cette page 
 // if (!isset($_SESSION["score"])) {
 //     $_SESSION["score"] = 0;
@@ -79,7 +81,7 @@ if (filter_has_var(INPUT_POST, "reset")) {
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
     $_SESSION["imageChoisie"] = $anime[$_SESSION["numeroQuestion"]];
-    $_SESSION["question"] = $anime;
+    $getSerie[1] = $anime;
 
 
     session_destroy();
@@ -91,22 +93,22 @@ if (isset($_SESSION["imageChoisie"])) {
 
     if (filter_has_var(INPUT_POST, "envoyer")) {
         $random = $_SESSION["numeroQuestion"];
-        $ListeQuestion = $_SESSION["question"];
-        $imageChoisi = $_SESSION["imageChoisie"];
+        $ListeQuestion =$getSerie[1];
+        $imageChoisi = $getSerie[2];
 
       
         array_pop($ListeQuestion);
-        $_SESSION["question"] = $ListeQuestion;
+        $getSerie[1] = $ListeQuestion;
        
 
         $random =count($ListeQuestion)-1;
         $_SESSION["numeroQuestion"] = $random;
-        if ($reponseUtilisateur == $imageChoisi->reponse) {
+        if ($reponseUtilisateur == $imageChoisi->$getSerie[3]) {
             $_SESSION["score"]++;
         }
 
         $imageChoisi = $ListeQuestion[$random];
-        $_SESSION["imageChoisie"] = $imageChoisi;
+        $getSerie[2] = $imageChoisi;
         $_SESSION["nbQuestion"]++;
         if ($_SESSION["nbQuestion"] >= 11) {
             header("location: ./finSerie.php");
@@ -121,8 +123,8 @@ if (isset($_SESSION["imageChoisie"])) {
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
     $imageChoisi = $anime[$_SESSION["numeroQuestion"]];
-    $_SESSION["imageChoisie"] = $imageChoisi;
-    $_SESSION["question"] = $anime;
+    $getSerie[2] = $imageChoisi;
+    $getSerie[1] = $anime;
 }
 
 
@@ -155,7 +157,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../vue/style/styleJeu.css">
+    <!--<link rel="stylesheet" href="../vue/style/styleJeu.css">-->
 
     <!-- Font Awesome -->
 
@@ -187,14 +189,16 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr style="text-align: center;">
                 <td class="img">
                     <?php
+                    foreach($getSerie as $getSerie){
                     if (isset($_SESSION["imageChoisie"])) {
-                        $imageChoisi = $_SESSION["imageChoisie"];
+                        $imageChoisi = $getSerie[2];
 
                         echo "<br>";
-                        echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
+                        echo '<p style="font-size: 22px;">', $getSerie[2]->question . '</p> <br>';
 
-                        echo '<img style="height: 700px; width: 900px; " src="' . $imageChoisi->img . '">';
+                        echo '<img style="height: 700px; width: 900px; " src="' . $getSerie[2]->img . '">';
                     }
+                }
                     ?>
                 </td>
             </tr>
