@@ -14,52 +14,52 @@ class Question
 //stockage des question,images,reponse
 $question1 = new Question();
 $question1->question = 'De quelle ville est origine Naruto ?';
-$question1->img = '../../images/imgAnime/question1.jpg';
+$question1->img = '../images/imgAnime/question1.jpg';
 $question1->reponse = 'konoha';
 
 $question2 = new Question();
 $question2->question = 'Quel âge a Eren lorsqu’il sauve Mikasa dans la première saison ?';
-$question2->img = '../../images/imgAnime/question2.png';
+$question2->img = '../images/imgAnime/question2.png';
 $question2->reponse = '9';
 
 $question3 = new Question();
 $question3->question = 'Dans Bleach comment s’appelle l’endroit où vivent les Shinigami ?';
-$question3->img = '../../images/imgAnime/question3.jpg';
+$question3->img = '../images/imgAnime/question3.jpg';
 $question3->reponse = 'soul society';
 
 $question4 = new Question();
 $question4->question = 'Ou luffy a-t-il passer son enfance?';
-$question4->img = '../../images/imgAnime/question4.png';
+$question4->img = '../images/imgAnime/question4.png';
 $question4->reponse = 'fushia';
 
 $question5 = new Question();
 $question5->question = 'Comment se nomme se personnage ?';
-$question5->img = '../../images/imgAnime/question5.jpg';
+$question5->img = '../images/imgAnime/question5.jpg';
 $question5->reponse = 'maka albarn';
 
 $question6 = new Question();
 $question6->question = 'Comment se nomme se personnage ?';
-$question6->img = '../../images/imgAnime/question6.jpg';
+$question6->img = '../images/imgAnime/question6.jpg';
 $question6->reponse = 'taiju';
 
 $question7 = new Question();
 $question7->question = 'Quelle est cette anime ?';
-$question7->img = '../../images/imgAnime/question7.jpg';
+$question7->img = '../images/imgAnime/question7.jpg';
 $question7->reponse = 'moriaty';
 
 $question8 = new Question();
 $question8->question = 'Comment se nomme se personnage ?';
-$question8->img = '../../images/imgAnime/question8.jpg';
+$question8->img = '../images/imgAnime/question8.jpg';
 $question8->reponse = 'kasumi miwa';
 
 $question9 = new Question();
 $question9->question = 'Quelle est cette anime ?';
-$question9->img = '../../images/imgAnime/question9.png';
+$question9->img = '../images/imgAnime/question9.png';
 $question9->reponse = 'beelzebub';
 
 $question10 = new Question();
 $question10->question = 'Dans Snk combien de personne rentrent en vie après avoir rebouche le mur Maria?';
-$question10->img = '../../images/imgAnime/question10.jpg';
+$question10->img = '../images/imgAnime/question10.jpg';
 $question10->reponse = '9';
 
 //Creation du tableau avec les question
@@ -153,7 +153,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../vue/style/styleJeu.css">
+    <link rel="stylesheet" href="./style/styleJeu.css">
 
     <!-- Font Awesome -->
 

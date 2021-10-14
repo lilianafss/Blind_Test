@@ -14,52 +14,52 @@ class Question
 //stockage des question,images,reponse
 $question1 = new Question();
 $question1->question = 'Quelle sont les dates de la première guerre mondial ?';
-$question1->img = '../../images/imgHistorie/Question1_histoire.jpg';
+$question1->img = '../images/imgHistorie/Question1_histoire.jpg';
 $question1->reponse = '1914-1918';
 
 $question2 = new Question();
 $question2->question = 'Quel est le « premier occidental » à avoir mis un pied en Chine ?';
-$question2->img = '../../images/imgHistorie/Question2_histoire.jpg';
+$question2->img = '../images/imgHistorie/Question2_histoire.jpg';
 $question2->reponse = 'Marco Polo';
 
 $question3 = new Question();
 $question3->question = 'Ou ont été jugés les nazis ?';
-$question3->img = '../../images/imgHistorie/Question3_histoire.jpg';
+$question3->img = '../images/imgHistorie/Question3_histoire.jpg';
 $question3->reponse = 'Nuremberg';
 
 $question4 = new Question();
 $question4->question = 'Qui a tué Marat en 1793 ?';
-$question4->img = '../../images/imgHistorie/Question4_histoire.jpg';
+$question4->img = '../images/imgHistorie/Question4_histoire.jpg';
 $question4->reponse = 'Charlotte corday';
 
 $question5 = new Question();
 $question5->question = 'Qui a dessiné l’homme de Vitruve ?';
-$question5->img = '../../images/imgHistorie/Question5_histoire.jpg';
+$question5->img = '../images/imgHistorie/Question5_histoire.jpg';
 $question5->reponse = 'Leonard De Vinci';
 
 $question6 = new Question();
 $question6->question = 'Quelle était la profession initiale de Gandhi ?';
-$question6->img = '../../images/imgHistorie/Question6_histoire.jpg';
+$question6->img = '../images/imgHistorie/Question6_histoire.jpg';
 $question6->reponse = 'Avocat';
 
 $question7 = new Question();
 $question7->question = 'Dans la mythologie romaine qui a fondé rome ?';
-$question7->img = '../../images/imgHistorie/Question7_histoire.jpg';
+$question7->img = '../images/imgHistorie/Question7_histoire.jpg';
 $question7->reponse = 'Romulus et Rémus';
 
 $question8 = new Question();
 $question8->question = 'Quel écrivain a pris la défense d’Alfred Dreyfus ?';
-$question8->img = '../../images/imgHistorie/Question8_histoire.jpg';
+$question8->img = '../images/imgHistorie/Question8_histoire.jpg';
 $question8->reponse = 'Emile Zola';
 
 $question9 = new Question();
 $question9->question = 'Quel est la date de la chute du mur de Berlin  ?';
-$question9->img = '../../images/imgHistorie/Question9_histoire.jpg';
+$question9->img = '../images/imgHistorie/Question9_histoire.jpg';
 $question9->reponse = '1989';
 
 $question10 = new Question();
 $question10->question = 'Ou est situé le Parthénon ?';
-$question10->img = '../../images/imgHistorie/Question10_histoire.jpg';
+$question10->img = '../images/imgHistorie/Question10_histoire.jpg';
 $question10->reponse = 'Athènes';
 
 //Creation du tableau avec les question
@@ -155,7 +155,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../vue/style/styleJeu.css">
+    <link rel="stylesheet" href="./style/styleJeu.css">
 
     <!-- Font Awesome -->
 

@@ -14,57 +14,57 @@ class Question
 //stockage des question,images,reponse
 $question1 = new Question();
 $question1->question = 'Qui est ce ?';
-$question1->img = '../../imgages/imgQuiEstCe/Question1_qui.jpg';
+$question1->img = '../imgages/imgQuiEstCe/Question1_qui.jpg';
 $question1->reponse = 'Shakira';
 
 $question2 = new Question();
 $question2->question = 'Qui est ce ?';
-$question2->img = '../../images/imgQuiEstCe/Question2_qui.jpg';
+$question2->img = '../images/imgQuiEstCe/Question2_qui.jpg';
 $question2->reponse = 'Drake';
 
 $question3 = new Question();
 $question3->question = 'Qui est ce ?';
-$question3->img = '../../images/imgQuiEstCe/Question3_qui.jpg';
+$question3->img = '../images/imgQuiEstCe/Question3_qui.jpg';
 $question3->reponse = 'Beyonce';
 
 $question4 = new Question();
 $question4->question = 'Qui est ce ?';
-$question4->img = '../../images/imgQuiEstCe/Question4_qui.jpg';
+$question4->img = '../images/imgQuiEstCe/Question4_qui.jpg';
 $question4->reponse = 'Brad Pitt';
 
 $question5 = new Question();
 $question5->question = 'Qui est ce ?';
-$question5->img = '../../images/imgQuiEstCe/Question5_qui.jpg';
+$question5->img = '../images/imgQuiEstCe/Question5_qui.jpg';
 $question5->reponse = 'Rihanna';
 
 $question6 = new Question();
 $question6->question = 'Qui est ce ?';
-$question6->img = '../../images/imgQuiEstCe/Question6_qui.jpg';
+$question6->img = '../images/imgQuiEstCe/Question6_qui.jpg';
 $question6->reponse = 'shwarzenegger';
 
 $question7 = new Question();
 $question7->question = 'Qui est ce ?';
-$question7->img = '../../images/imgQuiEstCe/Question7_qui.jpg';
+$question7->img = '../images/imgQuiEstCe/Question7_qui.jpg';
 $question7->reponse = 'Taylor Swift';
 
 $question8 = new Question();
 $question8->question = 'Qui est ce ?';
-$question8->img = '../../images/imgQuiEstCe/Question8_qui.jpg';
+$question8->img = '../images/imgQuiEstCe/Question8_qui.jpg';
 $question8->reponse = 'Dua Lipa';
 
 $question9 = new Question();
 $question9->question = 'Qui est ce ?';
-$question9->img = '../../images/imgQuiEstCe/Question9_qui.jpg';
+$question9->img = '../images/imgQuiEstCe/Question9_qui.jpg';
 $question9->reponse = 'Florent pagny';
 
 $question10 = new Question();
 $question10->question = 'Qui est ce ?';
-$question10->img = '../../images/imgQuiEstCe/Question10_qui.jpg';
+$question10->img = '../images/imgQuiEstCe/Question10_qui.jpg';
 $question10->reponse = 'Ariana Grande';
 
 $question11 = new Question();
 $question11->question = 'Qui est ce ?';
-$question11->img = '../../images/imgQuiEstCe/Question11_qui.jpg';
+$question11->img = '../images/imgQuiEstCe/Question11_qui.jpg';
 $question11->reponse = 'chris hemsworth';
 
 //Creation du tableau avec les question
@@ -161,7 +161,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../vue/style/styleJeu.css">
+    <link rel="stylesheet" href="./style/styleJeu.css">
 
     <!-- Font Awesome -->
 

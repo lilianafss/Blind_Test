@@ -14,52 +14,52 @@ class Question
 //stockage des question,images,reponse
 $question1 = new Question();
 $question1->question = 'Quel est la capitale de la Guinée ?';
-$question1->img = '../../images/imgCapital/Question1_capital.png';
+$question1->img = '../images/imgCapital/Question1_capital.png';
 $question1->reponse = 'conakry';
 
 $question2 = new Question();
 $question2->question = 'Quel est la capitale du Maroc ?';
-$question2->img = '../../images/imgCapital/Question2_capital.jpg';
+$question2->img = '../images/imgCapital/Question2_capital.jpg';
 $question2->reponse = 'rabat';
 
 $question3 = new Question();
 $question3->question = 'Quel est la capitale de la Mongolie ?';
-$question3->img = '../../images/imgCapital/Question3_capital.png';
+$question3->img = '../images/imgCapital/Question3_capital.png';
 $question3->reponse = 'oulan-Bator';
 
 $question4 = new Question();
 $question4->question = 'Quel est la capitale de l’Israël?';
-$question4->img = '../../images/imgCapital/Question4_capital.png';
+$question4->img = '../images/imgCapital/Question4_capital.png';
 $question4->reponse = 'jerusalem';
 
 $question5 = new Question();
 $question5->question = 'Quel est la capitale de Taiwan?';
-$question5->img = '../../images/imgCapital/Question5_capital.jpg';
+$question5->img = '../images/imgCapital/Question5_capital.jpg';
 $question5->reponse = 'taipei';
 
 $question6 = new Question();
 $question6->question = 'Quel est la capitale de la Turquie?';
-$question6->img = '../../images/imgCapital/Question6_capital.png';
+$question6->img = '../images/imgCapital/Question6_capital.png';
 $question6->reponse = 'ankara';
 
 $question7 = new Question();
 $question7->question = 'Quel est la capitale du Portugal?';
-$question7->img = '../../images/imgCapital/Question7_capitale.jpg';
+$question7->img = '../images/imgCapital/Question7_capitale.jpg';
 $question7->reponse = 'lisbonne';
 
 $question8 = new Question();
 $question8->question = 'Quel est la capitale du Brésil?';
-$question8->img = '../../images/imgCapital/Question8_capital.png';
+$question8->img = '../images/imgCapital/Question8_capital.png';
 $question8->reponse = ' brasilia';
 
 $question9 = new Question();
 $question9->question = 'Quel est la capitale de la Pologne?';
-$question9->img = '../../images/imgCapital/Question9_capital.png';
+$question9->img = '../images/imgCapital/Question9_capital.png';
 $question9->reponse = 'varsovie';
 
 $question10 = new Question();
 $question10->question = 'Quel est la capitale de l’Australie?';
-$question10->img = '../../images/imgCapital/Question10_capital.png';
+$question10->img = '../images/imgCapital/Question10_capital.png';
 $question10->reponse = 'canberra';
 
 //Creation du tableau avec les question
@@ -156,7 +156,7 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../vue/style/styleJeu.css">
+    <link rel="stylesheet" href="./style/styleJeu.css">
 
     <!-- Font Awesome -->
 
