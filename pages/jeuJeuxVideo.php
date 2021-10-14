@@ -251,7 +251,7 @@ if (isset($_SESSION["imageChoisie"])) {
                         echo "<br>";
                         echo '<p style="font-size: 40px; color: white;">', $imageChoisi->question . '</p> <br>';
 
-                        echo '<img style="height: 400px; width: 500px; " src="' . $imageChoisi->img . '">';
+                        echo '<img style="max-width:100%;height: auto; " src="' . $imageChoisi->img . '">';
                     }
                     ?>
                 </td>
