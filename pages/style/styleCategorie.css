@@ -38,34 +38,35 @@ p{
     font-weight: 700;
     color:#fff;
     float: left;
+    text-decoration: none;
 }
 
 /* -------> header <------- */
 .header{
-   position: fixed;
-   top:0;
-   left: 0;
-   width: 100%;
-   padding: 25px 5px;
-   background: linear-gradient(to top, transparent, rgba(0,0,0,0.6));
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #624194;
 }
 
-.nav{
+/*.nav{
     float: right;
     margin-top: 5px;
 }
 
 .nav__link{
     display: inline-block;
-}
+}*/
 
 .nav__link a{
-   text-decoration: none;
-   font-size: 16px;
-   color:#fff;
-    margin: 0 25px;
-    font-weight: 300;
-    letter-spacing: 1px;
+    text-decoration: none;
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
 }
 
 /* -------> header <------- */

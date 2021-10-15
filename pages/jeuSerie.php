@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+
 //initialisation des variables
 $random = rand(0, 9);
 //$nbQuestion=0;
@@ -69,6 +70,18 @@ $anime = array($question1, $question2, $question3, $question4, $question5, $ques
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
 $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
 
+// if (filter_has_var(INPUT_POST,"categories")) {
+//  header("location:categories.html");
+//     $_SESSION["numeroQuestion"] = count($anime)-1;
+//     $_SESSION["score"] = 0;
+//     $_SESSION["nbQuestion"] = 1;
+//     $_SESSION["imageChoisie"] = $anime[$_SESSION["numeroQuestion"]];
+//     $_SESSION["question"] = $anime;
+//     session_destroy();
+
+
+   
+// }
 
 //la premiere fois qu'on arrive sur cette page 
 // if (!isset($_SESSION["score"])) {
@@ -76,7 +89,8 @@ $reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING
 //     $imageChoisi = $anime[$random];
 // }
 
-if (filter_has_var(INPUT_POST, "reset")) {
+if (filter_has_var(INPUT_POST, "categories")) {
+    header("location:categories.html");
     $_SESSION["numeroQuestion"] = count($anime)-1;
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
@@ -118,7 +132,7 @@ if (isset($_SESSION["imageChoisie"])) {
     }
 } else {
     //premiere fois 
-
+    //echo $_SESSION['message'];
     $_SESSION["numeroQuestion"] = count($anime)-1;
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
@@ -170,11 +184,11 @@ if (isset($_SESSION["imageChoisie"])) {
 <body>
     <div class="header-container">
         <header class="header">
-            <h2 class="title">Blind Test</h2>
+            <h2 class="header__title">Blind Test</h2>
             <nav class="nav">
                 <ul>
-                    <li><a href="./categories.html">categories</a></li>
-                    <li><a href="../index.html"><i class="fas fa-2x fa-home"></i></a></li>
+                    <li class="nav__link"><a href="./categories.html">categories</a></li>
+                    <li class="nav__link"><a href="./index.html"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
         </header>
@@ -206,7 +220,7 @@ if (isset($_SESSION["imageChoisie"])) {
                 <td>
                     <input type="text" name="reponse" placeholder="Reponse">
                     <input type="submit" name="envoyer" value="envoyer" class="submit">
-                    <input type="submit" name="reset" value="reset" class="reset">
+                    <input type="submit" name="categories" value="categories" class="reset">
                 </td>
             </tr>
         </table>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$random = rand(0, 9);
 //Creation de la classe Question
 class Question
 {
@@ -53,10 +53,10 @@ $question4->solution4='Kim';
 $question5 = new Question();
 $question5->question = 'Comment se nomme La première zone de The Legend of Zelda : Breath of the Wild ?';
 $question5->img = '../images/imgJeuxVideo/Question5_jeux.jpg';
-$question5->reponse = 'Plateau-du-prélude';
+$question5->reponse = 'Plateau';
 $question5->solution1='Le debut';
-$question5->solution2='Plateau-du-prélude';
-$question5->solution3='Le plateau-du-départ';
+$question5->solution2='Plateau du prélude';
+$question5->solution3='Le plateau du départ';
 $question5->solution4='Entrée';
 
 $question6 = new Question();
@@ -89,8 +89,8 @@ $question8->solution4='Elduin';
 $question9 = new Question();
 $question9->question = 'De quel jeu provient cette image ?';
 $question9->img = '../images/imgJeuxVideo/Question9_jeux.jpg';
-$question9->reponse = 'Reign-of-Kings';
-$question9->solution1='Reign-of-Kings';
+$question9->reponse = 'Reign';
+$question9->solution1='Reign of Kings';
 $question9->solution2='Chivalry';
 $question9->solution3='Rust';
 $question9->solution4='Warcraft';
@@ -98,11 +98,11 @@ $question9->solution4='Warcraft';
 $question10 = new Question();
 $question10->question = 'De quel jeu provient cette image ?';
 $question10->img = '../images/imgJeuxVideo/Question10_jeux.jpeg';
-$question10->reponse = "Dungeon-Keeper";
+$question10->reponse = "Dungeon";
 $question10->solution1='Civilization';
 $question10->solution2='Warcraft';
 $question10->solution3='Diablo';
-$question10->solution4="Dungeon-Keeper";
+$question10->solution4="Dungeon Keeper";
 
 
 //Creation du tableau avec les question
@@ -120,15 +120,20 @@ $reponseUtilisateur = filter_input(INPUT_POST, "solution", FILTER_SANITIZE_STRIN
 //     $imageChoisi = $anime[$random];
 // }
 
-if (filter_has_var(INPUT_POST, "reset")) {
+if (filter_has_var(INPUT_POST, "categories")) {
+    header("location:categories.html");
     $_SESSION["numeroQuestion"] = count($anime)-1;
     $_SESSION["score"] = 0;
     $_SESSION["nbQuestion"] = 1;
     $_SESSION["imageChoisie"] = $anime[$_SESSION["numeroQuestion"]];
     $_SESSION["question"] = $anime;
-
-
     session_destroy();
+//      $_SESSION["score"] = 0;
+//      $_SESSION["nbQuestion"] = 1;
+//      $_SESSION["imageChoisie"] = $anime[$random];
+
+
+
 }
 
 if (isset($_SESSION["imageChoisie"])) {
@@ -224,57 +229,63 @@ if (isset($_SESSION["imageChoisie"])) {
     <title>Blind Test</title>
 </head>
 
-<body>
+<body class="main">
     <div class="header-container">
         <header class="header">
-            <h2 class="title">Blind Test</h2>
+            <h2 class="header__title">Blind Test</h2>
             <nav class="nav">
                 <ul>
-                    <li class="nav__link"><a href="">categories</a></li>
+                    <li class="nav__link"><a href="./categories.html">categories</a></li>
                     <li class="nav__link"><a href="./index.html"><i class="fas fa-2x fa-home"></i></a></li>
                 </ul>
             </nav>
         </header>
     </div>
     <form action="#" method="POST">
+ 
+        <div class="nbQuestion">Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </div>
+        <div class="score">Score : <?= $_SESSION["score"] ?></div> 
+        <div class="questionImg">
+            <?php
+            if (isset($_SESSION["imageChoisie"])) {
+                $imageChoisi = $_SESSION["imageChoisie"];
+
+                echo "<br>";
+                echo '<p>', $imageChoisi->question . '</p> <br>';
+
+                echo '<img  src="' . $imageChoisi->img . '">';
+            }
+            ?>
+        </div>
         <table>
-            <tr class="infoJeu">
-                <td><label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label></td>
-                <td><label>Score : <?= $_SESSION["score"] ?></label></td>
-            </tr>
-            <tr style="text-align: center;">
-                <td class="img" style="text-align:center;">
-                    <?php
-                    if (isset($_SESSION["imageChoisie"])) {
-                        $imageChoisi = $_SESSION["imageChoisie"];
-
-                        echo "<br>";
-                        echo '<p style="font-size: 40px; color: white;">', $imageChoisi->question . '</p> <br>';
-
-                        echo '<img style="max-width:100%;height: auto; " src="' . $imageChoisi->img . '">';
-                    }
-                    ?>
-                </td>
-            </tr>
             <tr>
                 <td>
                     <div class="radio__container">
                         <ul>
                             <li class="radio">
-                                <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
-                                <label for="solution1" class="radio__label"><?php echo  $imageChoisi->solution1?></label>
+                                
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
+                                    <?php echo  $imageChoisi->solution1?>
+                                </label>
                             </li>
                             <li class="radio">
-                                <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
-                                <label for="solution2" class="radio__label"><?php echo  $imageChoisi->solution2?></label>
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
+                                    <?php echo  $imageChoisi->solution2?>
+                                </label>
                             </li>   
                             <li class="radio">
-                                <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
-                                <label for="solution3" class="radio__label"><?php echo  $imageChoisi->solution3 ?></label>
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
+                                    <?php echo  $imageChoisi->solution3 ?>
+                                </label>
                             </li>   
                             <li class="radio">
-                                <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
-                                <label for="solution4" class="radio__label"><?php echo  $imageChoisi->solution4 ?></label>
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
+                                    <?php echo  $imageChoisi->solution4 ?>
+                                </label>
                             </li>               
                         </ul>
                     </div>
@@ -283,7 +294,7 @@ if (isset($_SESSION["imageChoisie"])) {
             <tr class="envoyer">
                 <td style="text-align:center;">
                     <input type="submit" name="envoyer" value="envoyer" class="submit">
-                    <input type="submit" name="reset" value="reset" class="reset">
+                    <input type="submit" name="categories" value="categories" class="reset">
                 </td>
             </tr>
         </table>
