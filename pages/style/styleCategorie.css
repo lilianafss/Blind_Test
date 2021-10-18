@@ -18,21 +18,18 @@ body{
   
 }
 
-/* Red border */
-hr {
-    border-top: 1px solid black;
-    margin-top: 5%;
-    
-   
+.row{
+    margin-bottom: 20px;
 }
 
+/*
 p{
     margin-top: 5%;
 
     text-align: center;
 }
 
-
+*/
 .header .header__title{
     font-size: 28px;
     font-weight: 700;
@@ -59,6 +56,7 @@ p{
     display: inline-block;
 }*/
 
+
 .nav__link a{
     text-decoration: none;
     float: right;
@@ -70,7 +68,7 @@ p{
 }
 
 /* -------> header <------- */
-/* -------> button <------- */
+/* -------> button <------- 
 
 button{
     height: 250px;
@@ -89,6 +87,8 @@ button{
   
 .image {
     display: block;
+    width: 50%;
+    height: 50%;
 }
   
 .button__overlay {
@@ -119,21 +119,20 @@ button{
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
+*/
+/*
 img{
     height: 250px;
     width: 300px;
 }
 
-/* -------> button <------- */
+ -------> button <------- 
 
 .grid-container{
     display: inline-grid;
     grid-template-columns: auto auto auto;
     justify-items: end;
+    margin: 3%  0 0 20%;
 }
+*/
 
-.grid-item{
-    width: 20%;
-    height: 20%;
-}

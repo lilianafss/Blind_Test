@@ -15,58 +15,108 @@ class Question
 $question1 = new Question();
 $question1->question = 'De quelle ville est origine Naruto ?';
 $question1->img = '../images/imgAnime/question1.jpg';
-$question1->reponse = 'konoha';
+$question1->reponse = 'Konoha';
+$question1->solution1='Suna';
+$question1->solution2='Konoha';
+$question1->solution3='Kumo';
+$question1->solution4='kiri';
+
 
 $question2 = new Question();
 $question2->question = 'Quel âge a Eren lorsqu’il sauve Mikasa dans la première saison ?';
 $question2->img = '../images/imgAnime/question2.png';
 $question2->reponse = '9';
+$question2->solution1='10';
+$question2->solution2='12';
+$question2->solution3='7';
+$question2->solution4='9';
+
 
 $question3 = new Question();
 $question3->question = 'Dans Bleach comment s’appelle l’endroit où vivent les Shinigami ?';
 $question3->img = '../images/imgAnime/question3.jpg';
-$question3->reponse = 'soul society';
+$question3->reponse = 'Soul';
+$question3->solution1='Karakura';
+$question3->solution2='Shinigamien';
+$question3->solution3='Urahara';
+$question3->solution4='Soul society';
+
 
 $question4 = new Question();
 $question4->question = 'Ou luffy a-t-il passer son enfance?';
 $question4->img = '../images/imgAnime/question4.png';
-$question4->reponse = 'fushia';
+$question4->reponse = 'Fushia';
+$question4->solution1='RedLine';
+$question4->solution2='Pays de Wano';
+$question4->solution3='Fushia';
+$question4->solution4='East Blue ';
+
 
 $question5 = new Question();
 $question5->question = 'Comment se nomme se personnage ?';
 $question5->img = '../images/imgAnime/question5.jpg';
-$question5->reponse = 'maka albarn';
+$question5->reponse = 'Maka';
+$question5->solution1='Spirit Albarn';
+$question5->solution2='Black Star';
+$question5->solution3='Maka Albarn';
+$question5->solution4='Crona';
+
 
 $question6 = new Question();
 $question6->question = 'Comment se nomme se personnage ?';
 $question6->img = '../images/imgAnime/question6.jpg';
-$question6->reponse = 'taiju';
+$question6->reponse = 'Taiju';
+$question6->solution1='Taiju';
+$question6->solution2='Senku';
+$question6->solution3='Hyoga';
+$question6->solution4='Teiju';
+
 
 $question7 = new Question();
 $question7->question = 'Quelle est cette anime ?';
 $question7->img = '../images/imgAnime/question7.jpg';
-$question7->reponse = 'moriaty';
+$question7->reponse = 'Moriaty';
+$question7->solution1='Black Butler';
+$question7->solution2='Castelvania';
+$question7->solution3='Dragon ball';
+$question7->solution4='Moriaty';
+
 
 $question8 = new Question();
 $question8->question = 'Comment se nomme se personnage ?';
 $question8->img = '../images/imgAnime/question8.jpg';
-$question8->reponse = 'kasumi miwa';
+$question8->reponse = 'Kasumi ';
+$question8->solution1='Maki Zenin';
+$question8->solution2='Nobara Kugisaki';
+$question8->solution3='Kasumi miwa';
+$question8->solution4='Maka albarn';
+
 
 $question9 = new Question();
 $question9->question = 'Quelle est cette anime ?';
 $question9->img = '../images/imgAnime/question9.png';
-$question9->reponse = 'beelzebub';
+$question9->reponse = 'Beelzebub';
+$question9->solution1='Beelzebub';
+$question9->solution2='Detective conan';
+$question9->solution3='Soul Eater'; 
+$question9->solution4='Chainaw man';
+
 
 $question10 = new Question();
 $question10->question = 'Dans Snk combien de personne rentrent en vie après avoir rebouche le mur Maria?';
 $question10->img = '../images/imgAnime/question10.jpg';
 $question10->reponse = '9';
+$question10->solution1 ='41';
+$question10->solution2 ='102';
+$question10->solution3 ='9';
+$question10->solution4 ='12';
+
 
 //Creation du tableau avec les question
 $anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
 //$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
-$reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
+$reponseUtilisateur = filter_input(INPUT_POST, "solution", FILTER_SANITIZE_STRING);
 
 //la premiere fois qu'on arrive sur cette page 
 // if (!isset($_SESSION["score"])) {
@@ -197,13 +247,45 @@ if (isset($_SESSION["imageChoisie"])) {
                     ?>
                 </td>
             </tr>
+            <tr>
+               <td> <div class="radio__container">
+                        <ul>
+                            <li class="radio">
+                                
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
+                                    <?php echo  $imageChoisi->solution1?>
+                                </label>
+                            </li>
+                            <li class="radio">
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
+                                    <?php echo  $imageChoisi->solution2?>
+                                </label>
+                            </li>   
+                            <li class="radio">
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
+                                    <?php echo  $imageChoisi->solution3 ?>
+                                </label>
+                            </li>   
+                            <li class="radio">
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
+                                    <?php echo  $imageChoisi->solution4 ?>
+                                </label>
+                            </li>               
+                        </ul>
+                    </div>
+                </td>
+                    </tr>
             <tr class="envoyer">
                 <td style="text-align:center;">
-                    <input type="text" name="reponse" placeholder="Reponse">
                     <input type="submit" name="envoyer" value="envoyer" class="submit">
                     <input type="submit" name="categories" value="categories" class="reset">
                 </td>
             </tr>
+           
         </table>
     </form>
 </body>

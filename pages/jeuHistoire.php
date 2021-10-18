@@ -16,57 +16,98 @@ $question1 = new Question();
 $question1->question = 'Quelle sont les dates de la première guerre mondial ?';
 $question1->img = '../images/imgHistorie/Question1_histoire.jpg';
 $question1->reponse = '1914-1918';
+$question1->solution1='1924-1932';
+$question1->solution2='1918-1914';
+$question1->solution3='1939-1945';
+$question1->solution4='1914-1918';
 
 $question2 = new Question();
 $question2->question = 'Quel est le « premier occidental » à avoir mis un pied en Chine ?';
 $question2->img = '../images/imgHistorie/Question2_histoire.jpg';
-$question2->reponse = 'Marco Polo';
+$question2->reponse = 'Marco';
+$question2->solution1='Christophe colomb';
+$question2->solution2='Moi';
+$question2->solution3='Galilée';
+$question2->solution4='Marco Polo';
 
 $question3 = new Question();
 $question3->question = 'Ou ont été jugés les nazis ?';
 $question3->img = '../images/imgHistorie/Question3_histoire.jpg';
 $question3->reponse = 'Nuremberg';
+$question3->solution1='Tribunal';
+$question3->solution2='Berlin';
+$question3->solution3='Nuremberg';
+$question3->solution4='Pologne';
 
 $question4 = new Question();
 $question4->question = 'Qui a tué Marat en 1793 ?';
 $question4->img = '../images/imgHistorie/Question4_histoire.jpg';
-$question4->reponse = 'Charlotte corday';
+$question4->reponse = 'Charlotte';
+$question4->solution1='Charlotte Corday';
+$question4->solution2='Louis 4';
+$question4->solution3='Leonard';
+$question4->solution4='Louis 16';
 
 $question5 = new Question();
 $question5->question = 'Qui a dessiné l’homme de Vitruve ?';
 $question5->img = '../images/imgHistorie/Question5_histoire.jpg';
-$question5->reponse = 'Leonard De Vinci';
+$question5->reponse = 'Leonard';
+$question5->solution1='Van gogh';
+$question5->solution2='Toi';
+$question5->solution3='Edvard Munch';
+$question5->solution4='Leonard De Vinci';
+
 
 $question6 = new Question();
 $question6->question = 'Quelle était la profession initiale de Gandhi ?';
 $question6->img = '../images/imgHistorie/Question6_histoire.jpg';
 $question6->reponse = 'Avocat';
+$question6->solution1='Boucher';
+$question6->solution2='Peintre';
+$question6->solution3='Avocat';
+$question6->solution4='Ecrivain';
 
 $question7 = new Question();
 $question7->question = 'Dans la mythologie romaine qui a fondé rome ?';
 $question7->img = '../images/imgHistorie/Question7_histoire.jpg';
-$question7->reponse = 'Romulus et Rémus';
+$question7->reponse = 'Romulus';
+$question7->solution1='Romulus et Rémus';
+$question7->solution2='Athena';
+$question7->solution3='Zeus';
+$question7->solution4='Une louve';
 
 $question8 = new Question();
 $question8->question = 'Quel écrivain a pris la défense d’Alfred Dreyfus ?';
 $question8->img = '../images/imgHistorie/Question8_histoire.jpg';
-$question8->reponse = 'Emile Zola';
+$question8->reponse = 'Emile';
+$question8->solution1='Personne';
+$question8->solution2='Lui meme ';
+$question8->solution3='Anonyme';
+$question8->solution4='Emile Zola';
 
 $question9 = new Question();
 $question9->question = 'Quel est la date de la chute du mur de Berlin  ?';
 $question9->img = '../images/imgHistorie/Question9_histoire.jpg';
 $question9->reponse = '1989';
+$question9->solution1='1991';
+$question9->solution2='1989';
+$question9->solution3='1968';
+$question9->solution4='1814';
 
 $question10 = new Question();
 $question10->question = 'Ou est situé le Parthénon ?';
 $question10->img = '../images/imgHistorie/Question10_histoire.jpg';
 $question10->reponse = 'Athènes';
+$question10->solution1='Rome';
+$question10->solution2='Santorin';
+$question10->solution3='Athènes';
+$question10->solution4='Sicile';
 
 //Creation du tableau avec les question
 $anime = array($question1, $question2, $question3, $question4, $question5, $question6, $question7, $question8, $question9, $question10);
 //$imageChoisi=$anime[$random];
 $btnEnvoyer = filter_input(INPUT_POST, "envoyer", FILTER_SANITIZE_STRING);
-$reponseUtilisateur = filter_input(INPUT_POST, "reponse", FILTER_SANITIZE_STRING);
+$reponseUtilisateur = filter_input(INPUT_POST, "solution", FILTER_SANITIZE_STRING);
 
 //la premiere fois qu'on arrive sur cette page 
 // if (!isset($_SESSION["score"])) {
@@ -199,9 +240,42 @@ if (isset($_SESSION["imageChoisie"])) {
                     ?>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <div class="radio__container">
+                        <ul>
+                            <li class="radio">
+                                
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
+                                    <?php echo  $imageChoisi->solution1?>
+                                </label>
+                            </li>
+                            <li class="radio">
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
+                                    <?php echo  $imageChoisi->solution2?>
+                                </label>
+                            </li>   
+                            <li class="radio">
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
+                                    <?php echo  $imageChoisi->solution3 ?>
+                                </label>
+                            </li>   
+                            <li class="radio">
+                                <label class="radio__label">
+                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
+                                    <?php echo  $imageChoisi->solution4 ?>
+                                </label>
+                            </li>               
+                        </ul>
+                    </div>
+                </td>
+            </tr>
             <tr class="envoyer">
                 <td style="text-align:center;">
-                    <input type="text" name="reponse" placeholder="Reponse">
+                 
                     <input type="submit" name="envoyer" value="envoyer" class="submit">
                     <input type="submit" name="categories" value="categories" class="reset">
                 </td>
