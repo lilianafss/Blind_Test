@@ -18,32 +18,54 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/styleFin.css">
+    <link rel="stylesheet" href="./style/styleFin.css">
     <title>Document</title>
 </head>
 
 <body>
-<?php if ($_SESSION["score"]<=5){?>
-    <h1>Tu as fini mais ton score est insuffisant  </h1>
-<?php } ?>
-<?php if ($_SESSION["score"]>=6)
-{?>
-<h1>Felicitation tu as fini avec un score excellent</h1>
-<?php } ?>
+    <div class="conatiner-fuild">
+        <div class="row">
+            <div class="col">
+                <header class="header">
+                    <nav class="navbar navbar-expand">
+                        <ul class="navbar-nav">
+                            <li class="nav__link"><a href="./categories.html">categories</a></li>
+                            <li class="nav__link"><a href="./index.html"><i class="fas fa-2x fa-home"></i></a></li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+        </div>
 
-    <!--Affichage du score-->
+        <div class="row">
+            <div class="col">
+                <?php if ($_SESSION["score"]<=5){?>
+                    <h1>Tu as fini mais ton score est insuffisant  </h1>
+                <?php } ?>
+                <?php if ($_SESSION["score"]>=6)
+                {?>
+                    <h1>Felicitation tu as fini avec un score excellent</h1>
+                <?php } ?>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <!--Affichage du score-->
    
-    <h2>ton score est de : <?php echo $_SESSION["score"] ?></h2>
-    <form method="post">
-        <table>
-            <tr>
-                <td > 
-                    <input type="submit" name="Accueil" value="Categories" class="accueil">
-                    <input type="submit" name="reset" value="Reset" class="reset">
-                </td>
-            </tr>
-        </table>
-    </form>
+                <h2>ton score est de : <?php echo $_SESSION["score"] ?></h2>
+            </div>
+        </div>
+    
+        <form method="post">
+            <div class="row">
+                <div class="col">
+                        <input type="submit" name="Accueil" value="Categories" class="accueil">
+                        <input type="submit" name="reset" value="Reset" class="reset">
+                </div>
+            </div>
+        </form>
+    </div>
 
     <?php 
     if (filter_has_var(INPUT_POST, "Accueil")) {

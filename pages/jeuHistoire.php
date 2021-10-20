@@ -10,6 +10,10 @@ class Question
     public $question;
     public $img;
     public $reponse;
+    public $solution1;
+    public $solution2;
+    public $solution3;
+    public $solution4;
 }
 //stockage des question,images,reponse
 $question1 = new Question();
@@ -199,6 +203,8 @@ if (isset($_SESSION["imageChoisie"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/styleJeu.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"    
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Font Awesome -->
 
     <script src="https://kit.fontawesome.com/2cafd0f29d.js" crossorigin="anonymous"></script>
@@ -208,80 +214,87 @@ if (isset($_SESSION["imageChoisie"])) {
 </head>
 
 <body>
-    <div class="header-container">
-        <header class="header">
-            <h2 class="header__title">Blind Test</h2>
-            <nav class="nav">
-                <ul>
-                    <li class="nav__link"><a href="./categories.html">categories</a></li>
-                    <li class="nav__link"><a href="./index.html"><i class="fas fa-2x fa-home"></i></a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-
-    <form action="#" method="POST">
-        <table>
-            <tr class="infoJeu">
-                <td><label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label></td>
-                <td><label>Score : <?= $_SESSION["score"] ?></label></td>
-            </tr>
-            <tr style="text-align: center;">
-                <td class="img" style="text-align:center;">
-                    <?php
-                    if (isset($_SESSION["imageChoisie"])) {
-                        $imageChoisi = $_SESSION["imageChoisie"];
-
-                        echo "<br>";
-                        echo '<p style="font-size: 40px; color: white;">', $imageChoisi->question . '</p> <br>';
-
-                        echo '<img style="height: 400px; width: 500px; " src="' . $imageChoisi->img . '">';
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="radio__container">
-                        <ul>
-                            <li class="radio">
-                                
-                                <label class="radio__label">
-                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
-                                    <?php echo  $imageChoisi->solution1?>
-                                </label>
-                            </li>
-                            <li class="radio">
-                                <label class="radio__label">
-                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
-                                    <?php echo  $imageChoisi->solution2?>
-                                </label>
-                            </li>   
-                            <li class="radio">
-                                <label class="radio__label">
-                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
-                                    <?php echo  $imageChoisi->solution3 ?>
-                                </label>
-                            </li>   
-                            <li class="radio">
-                                <label class="radio__label">
-                                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
-                                    <?php echo  $imageChoisi->solution4 ?>
-                                </label>
-                            </li>               
+    <div class="container-fuild">
+        <div class="row">
+            <div class="col">
+                <header class="header">
+                    <nav class="navbar navbar-expand">
+                        <ul class="navbar-nav">
+                            <li class="nav__link"><a href="./categories.html">categories</a></li>
+                            <li class="nav__link"><a href="./index.html"><i class="fas fa-2x fa-home"></i></a></li>
                         </ul>
+                    </nav>
+                </header>
+            </div>
+        </div>
+        <form action="#" method="POST">
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6">
+                    <label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6">
+                    <label>Score : <?= $_SESSION["score"] ?></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <?php
+                        
+                        if (isset($_SESSION["imageChoisie"]))
+                            {
+                            $imageChoisi = $_SESSION["imageChoisie"];
+
+                            echo "<br>";
+                            echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
+
+                            echo '<img class="w-50" src="' . $imageChoisi->img . '" >';
+                        
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6">
+                    <label class="radio__label">
+                        <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
+                        <?php echo  $imageChoisi->solution1?>
+                    </label>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6">
+                    <label class="radio__label">
+                        <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
+                        <?php echo  $imageChoisi->solution2?>
+                    </label>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6">
+                    <label class="radio__label">
+                        <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
+                        <?php echo  $imageChoisi->solution3 ?>
+                    </label>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6">
+                    <label class="radio__label">
+                        <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
+                        <?php echo  $imageChoisi->solution4 ?>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col">
+                        <input type="submit" name="envoyer" value="envoyer" class="submit">
+                        <input type="submit" name="categories" value="categories" class="reset">
                     </div>
-                </td>
-            </tr>
-            <tr class="envoyer">
-                <td style="text-align:center;">
-                 
-                    <input type="submit" name="envoyer" value="envoyer" class="submit">
-                    <input type="submit" name="categories" value="categories" class="reset">
-                </td>
-            </tr>
-        </table>
-    </form>
+            </div>
+
+        </form>
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
+
 
 </html>

@@ -3,14 +3,51 @@
     Projet : BlindTest/ Quiz
     Version: 1.0
 */
-body{
-    height: 900px;
-    width: 900px;
-    margin: auto;
-    margin-top: 180px;
-    vertical-align: middle;
+*{
+    margin: 0;
+    padding: 0;
 }
 
+body{
+    width: 100vw;
+    height: auto;
+}
+
+.row{
+    text-align: center;
+    width: 100%;
+    margin: 0px !important;
+}
+.col{
+    padding: 0px !important;
+}
+.nav-bar{
+    width:100%;
+}
+.nav-link{
+    font-size:30px;
+    color:white;
+}
+.nav__link a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.header {
+    font-size: 18px;
+    font-weight: 700;
+    color:#fff;
+    float: left;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: #624194;
+}
 /* -------> titres<------- */
 h1{
     text-align: center;
@@ -22,7 +59,7 @@ h2{
 }
 /* -------> titres<------- */
 
-/* -------> input submit <------- */
+/* -------> input submit <------- 
 .accueil{
     margin: 10px;
     margin-left: 340px;
@@ -45,4 +82,4 @@ h2{
     border-radius: 10px;
 }
 
-/* -------> input submit <------- */
+-------> input submit <------- */

@@ -11,40 +11,45 @@
 body{
     width: auto;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-image: url("../../../images/background.jpg");
-    background-color: #cccccc;
-    background-size: 100%;
 }
 
-.main{
-    padding: 16px;
-    margin-top: 30px;
+.row{
+    text-align: center;
+    width: 100%;
+    margin: 0px !important;
 }
-
-/* -------> header <------- */
-
-.header .header__title{
+.col{
+    padding: 0px !important;
+}
+.nav-bar{
+    width:100%;
+}
+.nav-link{
+    font-size:30px;
+    color:white;
+}
+.nav__link a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 18px 16px;
     text-decoration: none;
-    font-size: 28px;
+    font-size: 17px;
+}
+.header {
+    font-size: 18px;
     font-weight: 700;
     color:#fff;
     float: left;
-}
-
-.header{
+    text-decoration: none;
     overflow: hidden;
-    position: fixed;
-    top: 0;
+    position: relative;
     width: 100%;
     background-color: #624194;
 }
 
-
-/*.nav__link{
-    display: inline-block;
-}*/
+/* -------> header <------- 
 
 .nav__link a{
     float: right;
@@ -55,13 +60,13 @@ body{
     text-decoration: none;
     font-size: 17px;
 }
-/* -------> header <------- */
+ -------> header <------- 
 
 table {
     margin: 140px auto;
 }
 
-/* -------> input text <------- */
+-------> input text <------- 
 input{
     margin-top: 20px;
 }
@@ -80,10 +85,8 @@ input[type=text]:focus{
     border-bottom-color: steelblue;
     outline: none;
 }
-
-/* -------> input text <------- */
-
-/* -------> input submit <------- */
+ -------> input text <------- 
+-------> input submit <------- 
 .submit{
     margin: 10px;
     padding: 9px 25px;
@@ -104,7 +107,7 @@ input[type=text]:focus{
     -webkit-border-radius: 5px;
     border-radius: 10px;
 }
-/* -------> input submit <------- */
+ -------> input submit <------- 
 
 
 .infoJeu{
@@ -185,3 +188,5 @@ input[type="radio"]:checked {
     height: auto;
     text-align: center;
 }
+
+*/

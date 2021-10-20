@@ -23,13 +23,13 @@ session_start();
 </head>
 
 <body>
-<?php if ($_SESSION["score"]<=5){?>
-    <h1>Tu as fini mais ton score est insuffisant  </h1>
-<?php } ?>
-<?php if ($_SESSION["score"]>=6)
-{?>
-<h1>Felicitation tu as fini avec un score excellent</h1>
-<?php } ?>
+    <?php if ($_SESSION["score"]<=5){?>
+        <h1>Tu as fini mais ton score est insuffisant  </h1>
+    <?php } ?>
+    <?php if ($_SESSION["score"]>=6)
+    {?>
+    <h1>Felicitation tu as fini avec un score excellent</h1>
+    <?php } ?>
     <!--Affichage du score-->
     <h2>Ton score est de : <?php echo $_SESSION["score"] ?></h2>
     <form method="post">
