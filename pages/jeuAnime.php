@@ -221,79 +221,80 @@ if (isset($_SESSION["imageChoisie"])) {
 </head>
 
 <body>
-    <div class="container-fuild">
-        <div class="row">
-            <div class="col">
-                <header class="header">
-                    <nav class="navbar navbar-expand">
-                        <ul class="navbar-nav">
-                            <li class="nav__link"><a href="./categories.html">categories</a></li>
-                            <li class="nav__link"><a href="./index.html"><i class="fas fa-2x fa-home"></i></a></li>
-                        </ul>
-                    </nav>
-                </header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <h1 class="navbar-brand">Quizz</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="./categories.html">categories</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <form action="#" method="POST">
-                <div class="row">
-                    <div class="col-6 col-md-6 col-lg-6">
-                        <label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label>
-                    </div>
-                    <div class="col-6 col-md-6 col-lg-6">
-                        <label>Score : <?= $_SESSION["score"] ?></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-md-12 col-lg-12">
-                        <?php
-                            
-                            if (isset($_SESSION["imageChoisie"]))
-                             {
-                                $imageChoisi = $_SESSION["imageChoisie"];
+    </nav>
+    <form action="#" method="POST">
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6">
+                <label>Question n°: <?= $_SESSION["nbQuestion"] ?>/10 </label>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <label>Score : <?= $_SESSION["score"] ?></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <?php
+                    
+                    if (isset($_SESSION["imageChoisie"]))
+                        {
+                        $imageChoisi = $_SESSION["imageChoisie"];
 
-                                echo "<br>";
-                                echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
+                        echo "<br>";
+                        echo '<p style="font-size: 22px;">', $imageChoisi->question . '</p> <br>';
 
-                                echo '<img class="w-50" src="' . $imageChoisi->img . '" >';
-                            
-                            }
-                        ?>
-                    </div>
+                        echo '<img class="w-50" src="' . $imageChoisi->img . '" >';
+                    
+                    }
+                ?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6">
+                <label class="radio__label">
+                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
+                    <?php echo  $imageChoisi->solution1?>
+                </label>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <label class="radio__label">
+                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
+                    <?php echo  $imageChoisi->solution2?>
+                </label>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <label class="radio__label">
+                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
+                    <?php echo  $imageChoisi->solution3 ?>
+                </label>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <label class="radio__label">
+                    <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
+                    <?php echo  $imageChoisi->solution4 ?>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col">
+                    <input type="submit" name="envoyer" value="envoyer" class="submit">
+                    <input type="submit" name="categories" value="categories" class="reset">
                 </div>
-                <div class="row">
-                    <div class="col-6 col-md-6 col-lg-6">
-                        <label class="radio__label">
-                            <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution1?>>
-                            <?php echo  $imageChoisi->solution1?>
-                        </label>
-                    </div>
-                    <div class="col-6 col-md-6 col-lg-6">
-                        <label class="radio__label">
-                            <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution2 ?>>
-                            <?php echo  $imageChoisi->solution2?>
-                        </label>
-                    </div>
-                    <div class="col-6 col-md-6 col-lg-6">
-                        <label class="radio__label">
-                            <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution3 ?>>
-                            <?php echo  $imageChoisi->solution3 ?>
-                        </label>
-                    </div>
-                    <div class="col-6 col-md-6 col-lg-6">
-                        <label class="radio__label">
-                            <input type="radio" id="solution" name="solution" value=<?php echo $imageChoisi->solution4 ?>>
-                            <?php echo  $imageChoisi->solution4 ?>
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                        <div class="col">
-                            <input type="submit" name="envoyer" value="envoyer" class="submit">
-                            <input type="submit" name="categories" value="categories" class="reset">
-                        </div>
-                </div>
-        </form>
-    </div>
+        </div>
+    </form>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
